@@ -2,6 +2,7 @@
 
 
 #include "HitScanWeaponBase.h"
+#include "Kismet/GameplayStatics.h"
 
 void AHitScanWeaponBase::Fire()
 {
@@ -12,7 +13,9 @@ void AHitScanWeaponBase::Fire()
 		FRotator EyeRotation;
 		WeaponOwner->GetActorEyesViewPoint(EyeLocation, EyeRotation);
 
-		FVector TraceEnd = EyeLocation + (EyeRotation.Vector() * 10000);
+		FVector ShotDirection = EyeRotation.Vector();
+
+		FVector TraceEnd = EyeLocation + (ShotDirection * 10000);
 
 		FCollisionQueryParams QueryParams;
 		QueryParams.AddIgnoredActor(WeaponOwner);
@@ -22,7 +25,13 @@ void AHitScanWeaponBase::Fire()
 		if (GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, TraceEnd, ECC_Visibility, QueryParams))
 		{
 			//@TODO:击中目标，处理伤害
+			AActor* HitActor = Hit.GetActor();
 
+			UGameplayStatics::ApplyPointDamage(HitActor, 20.0f,ShotDirection,Hit, WeaponOwner->GetInstigatorController(), this, DamageType);
 		}
 	}
+}
+
+void AHitScanWeaponBase::Reload()
+{
 }

@@ -8,7 +8,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
-
+#include "GameplayPropertyComp.h"
 //////////////////////////////////////////////////////////////////////////
 // AminigamefpsCharacter
 
@@ -24,11 +24,6 @@ AminigamefpsCharacter::AminigamefpsCharacter()
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = true;
 	bUseControllerRotationRoll = false;
-
-	MaxHealth = 100;
-	Health = 100;
-	MaxArmor = 100;
-	Armor = 100;
 
 	bIsAbleToRecoverHealth = true;
 
@@ -49,6 +44,8 @@ AminigamefpsCharacter::AminigamefpsCharacter()
 	FName HeadName("head");
 	FollowCamera->SetupAttachment(GetMesh(), HeadName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = true;
+
+	GameplayPropertyComp = CreateDefaultSubobject<UGameplayPropertyComp>(TEXT("GameplayPropertyComp"));
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 }
@@ -77,6 +74,11 @@ void AminigamefpsCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 }
 
 
+
+void AminigamefpsCharacter::ReceivePointDamage(float Damage, const class UDamageType* DamageType, FVector HitLocation, FVector HitNormal, class UPrimitiveComponent* HitComponent, FName BoneName, FVector ShotFromDirection, class AController* InstigatedBy, AActor* DamageCauser, const FHitResult& HitInfo)
+{
+
+}
 
 void AminigamefpsCharacter::TurnAtRate(float Rate)
 {

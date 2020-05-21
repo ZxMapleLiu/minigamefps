@@ -8,7 +8,7 @@ AWeaponBase::AWeaponBase()
 {
 	MeshComp = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("MeshComp"));
 	RootComponent = MeshComp;
-
+	bIsReloading = false;
 }
 
 // Called when the game starts or when spawned

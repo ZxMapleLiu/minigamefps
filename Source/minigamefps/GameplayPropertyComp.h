@@ -19,10 +19,21 @@ public:
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
-
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Gameplay)
+		int MaxHealth;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Gameplay)
+		int Health;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Gameplay)
+		int MaxArmor; 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Gameplay)
+		int Armor;
 public:	
+	int GetMaxHealth();
+	int GetHealth();
+	int GetMaxArmor();
+	int GetArmor();
 	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	//virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 		
 };

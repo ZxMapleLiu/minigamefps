@@ -15,4 +15,6 @@ class MINIGAMEFPS_API AHitScanWeaponBase : public AWeaponBase
 	GENERATED_BODY()
 protected:
 	virtual void Fire();
+	UFUNCTION(BlueprintCallable, Category = "Weapon")
+	virtual void Reload();
 };

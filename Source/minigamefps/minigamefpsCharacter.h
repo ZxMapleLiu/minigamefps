@@ -18,6 +18,9 @@ class AminigamefpsCharacter : public ACharacter
 	/** Follow camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Gameplay, meta = (AllowPrivateAccess = "true"))
+	class UGameplayPropertyComp* GameplayPropertyComp;
 public:
 	AminigamefpsCharacter();
 
@@ -28,14 +31,7 @@ public:
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Gameplay)
-		int MaxHealth;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Gameplay)
-		int Health;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Gameplay)
-		int MaxArmor; 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Gameplay)
-		int Armor;
+	
 
 protected:
 	/** Called for forwards/backward input */
@@ -68,5 +64,7 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+	/** Returns FollowCamera subobject **/
+	FORCEINLINE class UGameplayPropertyComp* GetGameplayPropertyComp() const { return GameplayPropertyComp; }
 };
 
