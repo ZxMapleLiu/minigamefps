@@ -27,13 +27,17 @@ protected:
 		int MaxArmor; 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Gameplay)
 		int Armor;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Gameplay)
+	//´­ÆøÉñ¹¦
+	bool bIsAbleToRecoverHealth;
 public:	
 	int GetMaxHealth();
 	int GetHealth();
 	int GetMaxArmor();
 	int GetArmor();
+	void TakeDamage(int value);
 	// Called every frame
-	//virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 		
 };

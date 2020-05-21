@@ -28,6 +28,8 @@ void AHitScanWeaponBase::Fire()
 			AActor* HitActor = Hit.GetActor();
 
 			UGameplayStatics::ApplyPointDamage(HitActor, 20.0f,ShotDirection,Hit, WeaponOwner->GetInstigatorController(), this, DamageType);
+			//注意：角色的承受伤害函数在C++中无法重写，需要在蓝图中实现
+			//参见Actor类TakenDamage的声明
 		}
 	}
 }

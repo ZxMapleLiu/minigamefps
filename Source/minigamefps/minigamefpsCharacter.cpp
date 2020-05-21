@@ -25,8 +25,6 @@ AminigamefpsCharacter::AminigamefpsCharacter()
 	bUseControllerRotationYaw = true;
 	bUseControllerRotationRoll = false;
 
-	bIsAbleToRecoverHealth = true;
-
 	// Configure character movement
 	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // ...at this rotation rate
@@ -75,10 +73,6 @@ void AminigamefpsCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 
 
 
-void AminigamefpsCharacter::ReceivePointDamage(float Damage, const class UDamageType* DamageType, FVector HitLocation, FVector HitNormal, class UPrimitiveComponent* HitComponent, FName BoneName, FVector ShotFromDirection, class AController* InstigatedBy, AActor* DamageCauser, const FHitResult& HitInfo)
-{
-
-}
 
 void AminigamefpsCharacter::TurnAtRate(float Rate)
 {

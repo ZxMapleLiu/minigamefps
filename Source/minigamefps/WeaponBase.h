@@ -33,7 +33,7 @@ protected:
 		int CurrentReservedAmmo;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
 		int WeaponDamage;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")//需要使用子弹进行攻击
 		bool bNeedAmmo;
 	bool bIsReloading;
 	//开火函数
