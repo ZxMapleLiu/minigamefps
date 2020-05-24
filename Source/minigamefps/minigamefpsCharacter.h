@@ -31,8 +31,8 @@ public:
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
-	
-
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Gameplay)
+	bool bIsSprinting;
 protected:
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
@@ -51,6 +51,11 @@ protected:
 	 * @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
 	 */
 	void LookUpAtRate(float Rate);
+	//处理冲刺跑的函数
+	void Sprinting();
+	void StopSprinting();
+
+
 	
 
 protected:

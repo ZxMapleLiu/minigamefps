@@ -20,10 +20,13 @@ AminigamefpsCharacter::AminigamefpsCharacter()
 	// set our turn rates for input
 	BaseTurnRate = 45.f;
 	BaseLookUpRate = 45.f;
-
+	bIsSprinting = false;
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = true;
 	bUseControllerRotationRoll = false;
+	GetCharacterMovement()->MaxWalkSpeed = 250;
+	GetCharacterMovement()->MaxWalkSpeedCrouched = 200;
+
 
 	// Configure character movement
 	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
@@ -58,6 +61,9 @@ void AminigamefpsCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
+	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AminigamefpsCharacter::Sprinting);
+	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AminigamefpsCharacter::StopSprinting);
+
 	PlayerInputComponent->BindAxis("MoveForward", this, &AminigamefpsCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AminigamefpsCharacter::MoveRight);
 
@@ -86,6 +92,18 @@ void AminigamefpsCharacter::LookUpAtRate(float Rate)
 	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
 }
 
+void AminigamefpsCharacter::Sprinting()
+{
+	bIsSprinting = true;
+	GetCharacterMovement()->MaxWalkSpeed = 400;
+}
+
+void AminigamefpsCharacter::StopSprinting()
+{
+	bIsSprinting = false;
+	GetCharacterMovement()->MaxWalkSpeed = 250;
+}
+
 void AminigamefpsCharacter::MoveForward(float Value)
 {
 	if ((Controller != NULL) && (Value != 0.0f))
@@ -102,7 +120,7 @@ void AminigamefpsCharacter::MoveForward(float Value)
 
 void AminigamefpsCharacter::MoveRight(float Value)
 {
-	if ( (Controller != NULL) && (Value != 0.0f) )
+	if ( (Controller != NULL) && (Value != 0.0f) && bIsSprinting==false)
 	{
 		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();
