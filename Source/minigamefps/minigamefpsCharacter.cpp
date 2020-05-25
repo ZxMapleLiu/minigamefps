@@ -96,12 +96,15 @@ void AminigamefpsCharacter::Sprinting()
 {
 	bIsSprinting = true;
 	GetCharacterMovement()->MaxWalkSpeed = 400;
+	GetCharacterMovement()->MaxAcceleration *= 2;
+
 }
 
 void AminigamefpsCharacter::StopSprinting()
 {
 	bIsSprinting = false;
 	GetCharacterMovement()->MaxWalkSpeed = 250;
+	GetCharacterMovement()->MaxAcceleration /= 2;
 }
 
 void AminigamefpsCharacter::MoveForward(float Value)
