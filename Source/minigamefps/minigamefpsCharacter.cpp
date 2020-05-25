@@ -107,6 +107,14 @@ void AminigamefpsCharacter::StopSprinting()
 	GetCharacterMovement()->MaxAcceleration /= 2;
 }
 
+void AminigamefpsCharacter::Fire()
+{
+	if (WeaponSlot != NULL)
+	{
+		WeaponSlot->Fire();
+	}
+}
+
 void AminigamefpsCharacter::MoveForward(float Value)
 {
 	if ((Controller != NULL) && (Value != 0.0f))

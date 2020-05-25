@@ -4,8 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "WeaponBase.h"
 #include "minigamefpsCharacter.generated.h"
-
 UCLASS(config=Game)
 class AminigamefpsCharacter : public ACharacter
 {
@@ -33,6 +33,8 @@ public:
 	float BaseLookUpRate;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Gameplay)
 	bool bIsSprinting;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Gameplay)
+	AWeaponBase* WeaponSlot;
 protected:
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
@@ -55,6 +57,7 @@ protected:
 	void Sprinting();
 	void StopSprinting();
 
+	void Fire();
 
 	
 

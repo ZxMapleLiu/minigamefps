@@ -17,7 +17,8 @@ public:
 	// Sets default values for this actor's properties
 	AWeaponBase();
 	
-
+	UFUNCTION(BlueprintCallable, Category = "Weapon")
+		virtual void Fire();
 	//需要使用子弹进行开火
 	
 protected:
@@ -37,8 +38,7 @@ protected:
 		bool bNeedAmmo;
 	bool bIsReloading;
 	//开火函数
-	UFUNCTION(BlueprintCallable,Category = "Weapon")
-	virtual void Fire();
+	
 	//网格模型
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = "Components")
 	USkeletalMeshComponent* MeshComp;
