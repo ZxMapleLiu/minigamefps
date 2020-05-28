@@ -21,6 +21,7 @@ AminigamefpsCharacter::AminigamefpsCharacter()
 	BaseTurnRate = 45.f;
 	BaseLookUpRate = 45.f;
 	bIsSprinting = false;
+	bIsFiring = false;
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = true;
 	bUseControllerRotationRoll = false;
@@ -61,6 +62,8 @@ void AminigamefpsCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AminigamefpsCharacter::Fire);
+	PlayerInputComponent->BindAction("Fire", IE_Released, this, &AminigamefpsCharacter::StopFiring);
 	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AminigamefpsCharacter::Sprinting);
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AminigamefpsCharacter::StopSprinting);
 
@@ -109,10 +112,21 @@ void AminigamefpsCharacter::StopSprinting()
 
 void AminigamefpsCharacter::Fire()
 {
-	if (WeaponSlot != NULL)
+	if (WeaponSlot != NULL && !bIsSprinting)
 	{
+		bIsFiring = true;
 		WeaponSlot->Fire();
+		//bIsFiring = false;
 	}
+	else
+	{
+		GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("No Weapon"));
+	}
+}
+
+void AminigamefpsCharacter::StopFiring()
+{
+	bIsFiring = false;
 }
 
 void AminigamefpsCharacter::MoveForward(float Value)

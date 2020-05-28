@@ -8,6 +8,8 @@
 
 class USkeletalMeshComponent;
 class UDamageType;
+class USoundCue;
+class UParticleEmitter;
 UCLASS()
 class MINIGAMEFPS_API AWeaponBase : public AActor
 {
@@ -18,7 +20,7 @@ public:
 	AWeaponBase();
 	
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
-		virtual void Fire();
+	virtual void Fire();
 	//需要使用子弹进行开火
 	
 protected:
@@ -45,6 +47,14 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
 	TSubclassOf<UDamageType> DamageType;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sound")
+	USoundCue* FireSound;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sound")
+	USoundCue* ReloadSound;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sound")
+	USoundCue* NoAmmoSound;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+	UParticleSystem* FireMuzzle;
 public:	
 	FORCEINLINE USkeletalMeshComponent* GetMeshComp() const { return MeshComp; }
 

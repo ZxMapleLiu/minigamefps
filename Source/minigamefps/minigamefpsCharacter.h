@@ -33,7 +33,9 @@ public:
 	float BaseLookUpRate;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Gameplay)
 	bool bIsSprinting;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Gameplay)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Gameplay)
+	bool bIsFiring;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	AWeaponBase* WeaponSlot;
 protected:
 	/** Called for forwards/backward input */
@@ -58,7 +60,7 @@ protected:
 	void StopSprinting();
 
 	void Fire();
-
+	void StopFiring();
 	
 
 protected:

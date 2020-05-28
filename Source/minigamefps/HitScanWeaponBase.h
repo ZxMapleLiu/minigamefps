@@ -13,6 +13,7 @@ UCLASS()
 class MINIGAMEFPS_API AHitScanWeaponBase : public AWeaponBase
 {
 	GENERATED_BODY()
+	AHitScanWeaponBase();
 protected:
 	virtual void Fire();
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
