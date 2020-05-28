@@ -23,3 +23,13 @@ void AWeaponBase::Fire()
 
 }
 
+void AWeaponBase::Reload()
+{
+
+}
+
+void AWeaponBase::EndReloading()
+{
+
+}
+

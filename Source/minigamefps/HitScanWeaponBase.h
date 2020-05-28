@@ -18,4 +18,5 @@ protected:
 	virtual void Fire();
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
 	virtual void Reload();
+	virtual void EndReloading();
 };

@@ -22,7 +22,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
 	virtual void Fire();
 	//需要使用子弹进行开火
-	
+	virtual void Reload();
+	virtual void EndReloading();
+	FTimerHandle ReloadTimer;
+	float ReloadTime;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

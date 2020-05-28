@@ -35,8 +35,11 @@ public:
 	bool bIsSprinting;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Gameplay)
 	bool bIsFiring;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Gameplay)
+	bool bIsRealoading;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	AWeaponBase* WeaponSlot;
+	void EndReloading();//不会被自己调用，只会被武器的类调用
 protected:
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
@@ -61,6 +64,8 @@ protected:
 
 	void Fire();
 	void StopFiring();
+	
+	void StartReloading();
 	
 
 protected:

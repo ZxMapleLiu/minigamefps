@@ -22,6 +22,7 @@ AminigamefpsCharacter::AminigamefpsCharacter()
 	BaseLookUpRate = 45.f;
 	bIsSprinting = false;
 	bIsFiring = false;
+	bIsRealoading = false;
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = true;
 	bUseControllerRotationRoll = false;
@@ -66,6 +67,8 @@ void AminigamefpsCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	PlayerInputComponent->BindAction("Fire", IE_Released, this, &AminigamefpsCharacter::StopFiring);
 	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AminigamefpsCharacter::Sprinting);
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AminigamefpsCharacter::StopSprinting);
+	PlayerInputComponent->BindAction("Reload", IE_Pressed, this, &AminigamefpsCharacter::StartReloading);
+
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &AminigamefpsCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AminigamefpsCharacter::MoveRight);
@@ -97,36 +100,54 @@ void AminigamefpsCharacter::LookUpAtRate(float Rate)
 
 void AminigamefpsCharacter::Sprinting()
 {
-	bIsSprinting = true;
-	GetCharacterMovement()->MaxWalkSpeed = 400;
-	GetCharacterMovement()->MaxAcceleration *= 2;
-
+	if (!bIsRealoading && !bIsFiring)
+	{
+		bIsSprinting = true;
+		GetCharacterMovement()->MaxWalkSpeed = 400;
+		GetCharacterMovement()->MaxAcceleration *= 2;
+	}
 }
 
 void AminigamefpsCharacter::StopSprinting()
 {
-	bIsSprinting = false;
-	GetCharacterMovement()->MaxWalkSpeed = 250;
-	GetCharacterMovement()->MaxAcceleration /= 2;
+	if (bIsSprinting)
+	{
+		bIsSprinting = false;
+		GetCharacterMovement()->MaxWalkSpeed = 250;
+		GetCharacterMovement()->MaxAcceleration /= 2;
+	}
+	
 }
 
 void AminigamefpsCharacter::Fire()
 {
-	if (WeaponSlot != NULL && !bIsSprinting)
+	if (WeaponSlot != NULL && !bIsSprinting && !bIsRealoading)
 	{
 		bIsFiring = true;
 		WeaponSlot->Fire();
-		//bIsFiring = false;
 	}
-	else
-	{
-		GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("No Weapon"));
-	}
+// 	else
+// 	{
+// 		GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("No Weapon"));
+// 	}
 }
 
 void AminigamefpsCharacter::StopFiring()
 {
 	bIsFiring = false;
+}
+
+void AminigamefpsCharacter::StartReloading()
+{
+	if (WeaponSlot && bIsRealoading == false)
+	{
+		WeaponSlot->Reload();
+	}
+}
+
+void AminigamefpsCharacter::EndReloading()
+{
+	bIsRealoading = false;
 }
 
 void AminigamefpsCharacter::MoveForward(float Value)
