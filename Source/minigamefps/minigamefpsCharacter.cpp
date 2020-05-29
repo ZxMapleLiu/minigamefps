@@ -141,6 +141,7 @@ void AminigamefpsCharacter::StartReloading()
 {
 	if (WeaponSlot && bIsRealoading == false)
 	{
+		bIsRealoading = true;
 		WeaponSlot->Reload();
 	}
 }
