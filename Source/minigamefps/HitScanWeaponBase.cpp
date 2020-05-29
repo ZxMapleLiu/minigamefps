@@ -13,7 +13,9 @@ AHitScanWeaponBase::AHitScanWeaponBase()
 {
 	bNeedAmmo = true;
 	bIsReloading = false;
-	ReloadTime = 1.5f;
+	ReloadTime = 2.0f;
+	bIsAutomatic = true;
+	FireRate = 0.1f;
 }
 
 void AHitScanWeaponBase::Fire()

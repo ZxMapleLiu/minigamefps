@@ -63,7 +63,7 @@ void AminigamefpsCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
-	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AminigamefpsCharacter::Fire);
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AminigamefpsCharacter::StartFiring);
 	PlayerInputComponent->BindAction("Fire", IE_Released, this, &AminigamefpsCharacter::StopFiring);
 	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AminigamefpsCharacter::Sprinting);
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AminigamefpsCharacter::StopSprinting);
@@ -119,12 +119,30 @@ void AminigamefpsCharacter::StopSprinting()
 	
 }
 
+void AminigamefpsCharacter::CheckForAutoFire()
+{
+	if (bIsFiring == true)
+	{
+		GetWorldTimerManager().ClearTimer(AutoWeaponFireTimerHandle);
+		Fire();
+	}
+}
+
+void AminigamefpsCharacter::StartFiring()
+{
+	bIsFiring = true;
+	this->Fire();
+}
+
 void AminigamefpsCharacter::Fire()
 {
 	if (WeaponSlot != NULL && !bIsSprinting && !bIsRealoading)
 	{
-		bIsFiring = true;
 		WeaponSlot->Fire();
+		if (WeaponSlot->bIsAutomatic == true)
+		{
+			GetWorldTimerManager().SetTimer(AutoWeaponFireTimerHandle, this, &AminigamefpsCharacter::CheckForAutoFire, WeaponSlot->FireRate);
+		}
 	}
 // 	else
 // 	{

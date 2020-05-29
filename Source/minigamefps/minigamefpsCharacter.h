@@ -27,7 +27,7 @@ public:
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseTurnRate;
-
+	FTimerHandle AutoWeaponFireTimerHandle;
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
@@ -61,7 +61,8 @@ protected:
 	//处理冲刺跑的函数
 	void Sprinting();
 	void StopSprinting();
-
+	void CheckForAutoFire();
+	void StartFiring();
 	void Fire();
 	void StopFiring();
 	

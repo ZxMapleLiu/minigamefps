@@ -26,6 +26,10 @@ public:
 	virtual void EndReloading();
 	FTimerHandle ReloadTimer;
 	float ReloadTime;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
+	bool bIsAutomatic;//是否为自动武器
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
+	float FireRate;//射速(两发子弹之间的延迟)
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
