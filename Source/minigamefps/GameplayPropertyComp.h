@@ -15,7 +15,8 @@ class MINIGAMEFPS_API UGameplayPropertyComp : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UGameplayPropertyComp();
-
+	FTimerHandle Handler;
+	void RecoverHealth();
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;

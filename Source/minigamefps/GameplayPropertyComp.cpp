@@ -21,8 +21,8 @@ UGameplayPropertyComp::UGameplayPropertyComp()
 void UGameplayPropertyComp::BeginPlay()
 {
 	Super::BeginPlay();
-
 	// ...
+	TakeDamage(150);
 	
 }
 
@@ -76,7 +76,17 @@ void UGameplayPropertyComp::TakeDamage(int value)
 			}
 			bIsAbleToRecoverHealth = false;
 			//TODO：设置延迟喘气回血
+			GetWorld()->GetTimerManager().SetTimer(Handler,this, &UGameplayPropertyComp::RecoverHealth, 3, false, 0);
 		}
+	}
+}
+
+void UGameplayPropertyComp::RecoverHealth()
+{
+	bIsAbleToRecoverHealth = true;
+	if (bIsAbleToRecoverHealth)
+	{
+		return;
 	}
 }
 
@@ -86,5 +96,9 @@ void UGameplayPropertyComp::TickComponent(float DeltaTime, ELevelTick TickType, 
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 	//TODO:写喘气神功的逻辑
 	// ...
+	if (bIsAbleToRecoverHealth == true && Health < MaxHealth && Health >0)
+	{
+		Health += 3;
+	}
 }
 
