@@ -2,6 +2,7 @@
 
 
 #include "GameplayPropertyComp.h"
+#include "minigamefpsCharacter.h"
 #include "GameFramework/Character.h"
 // Sets default values for this component's properties
 UGameplayPropertyComp::UGameplayPropertyComp()
@@ -22,7 +23,7 @@ void UGameplayPropertyComp::BeginPlay()
 {
 	Super::BeginPlay();
 	// ...
-	TakeDamage(150);
+	TakeDamage(200);
 	
 }
 
@@ -54,7 +55,8 @@ void UGameplayPropertyComp::TakeDamage(int value)
 		else
 		{
 			//TODO：角色死亡，传递信息给OwnerCharacter
-			ACharacter* CompOwner = Cast<ACharacter>(GetOwner());
+			ACharacter* CompOwner = Cast<AminigamefpsCharacter>(GetOwner());
+			
 		}
 		bIsAbleToRecoverHealth = false;
 	}
@@ -72,7 +74,8 @@ void UGameplayPropertyComp::TakeDamage(int value)
 			else
 			{
 				//TODO：角色死亡，传递信息给OwnerCharacter
-				ACharacter* CompOwner = Cast<ACharacter>(GetOwner());
+				ACharacter* CompOwner = Cast<AminigamefpsCharacter>(GetOwner());
+				
 			}
 			bIsAbleToRecoverHealth = false;
 			//TODO：设置延迟喘气回血

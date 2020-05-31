@@ -85,7 +85,6 @@ void AminigamefpsCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 
 
 
-
 void AminigamefpsCharacter::TurnAtRate(float Rate)
 {
 	// calculate delta for this frame from the rate information
@@ -168,6 +167,8 @@ void AminigamefpsCharacter::EndReloading()
 {
 	bIsRealoading = false;
 }
+
+
 
 void AminigamefpsCharacter::MoveForward(float Value)
 {

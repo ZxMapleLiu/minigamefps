@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include<string>
 #include "WeaponBase.generated.h"
 
 class USkeletalMeshComponent;
@@ -45,6 +46,8 @@ protected:
 		int WeaponDamage;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")//需要使用子弹进行攻击
 		bool bNeedAmmo;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
+		FString WeaponName;
 	bool bIsReloading;
 	//开火函数
 	
