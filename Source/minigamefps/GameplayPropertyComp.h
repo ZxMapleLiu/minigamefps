@@ -7,6 +7,8 @@
 #include "GameplayPropertyComp.generated.h"
 
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_SevenParams(FOnHealthChangeSignature, UGameplayPropertyComp*, GameplayComp, float, Health, float, Armor, float, Damage, const class UDamageType*, DamageType, class AController*, InstigatedBy, AActor*, DamageCauser);
+
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class MINIGAMEFPS_API UGameplayPropertyComp : public UActorComponent
 {
@@ -43,6 +45,6 @@ public:
 	bool bIsDead;
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
-		
+	UPROPERTY(BlueprintAssignable,Category = "Event")
+	FOnHealthChangeSignature OnHealthChanged;
 };

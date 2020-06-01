@@ -59,7 +59,7 @@ void UGameplayPropertyComp::TakeDamage(AActor* DamagedActor, float Damage, const
 		else
 		{
 			bIsDead = true;
-			
+			Health = 0;
 		}
 		if (bIsAbleToRecoverHealth == false)
 		{
@@ -82,7 +82,7 @@ void UGameplayPropertyComp::TakeDamage(AActor* DamagedActor, float Damage, const
 			else
 			{
 				bIsDead = true;
-				
+				Health = 0;
 			}
 			if (bIsAbleToRecoverHealth == false)
 			{
@@ -92,6 +92,7 @@ void UGameplayPropertyComp::TakeDamage(AActor* DamagedActor, float Damage, const
 			GetWorld()->GetTimerManager().SetTimer(TimeHandler,this, &UGameplayPropertyComp::RecoverHealth, 3, false); //如果不循环最后一个参数不要填
 		}
 	}
+	OnHealthChanged.Broadcast(this, Health, Armor, Damage, DamageType, InstigatedBy, DamageCauser);
 }
 
 void UGameplayPropertyComp::RecoverHealth()
