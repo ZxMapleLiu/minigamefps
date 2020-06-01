@@ -5,19 +5,21 @@
 #include "Sound/SoundCue.h"
 #include "minigamefpsCharacter.h"
 #include "Particles/ParticleEmitter.h"
+#include "Particles/ParticleSystemComponent.h"
 #include "Engine/SkeletalMesh.h"
 #include "Engine/SkeletalMeshSocket.h"
 #include "Kismet/GameplayStatics.h"
 
 AHitScanWeaponBase::AHitScanWeaponBase()
 {
+	
 	bNeedAmmo = true;
 	bIsReloading = false;
 	ReloadTime = 2.0f;
 	bIsAutomatic = true;
 	FireRate = 0.1f;
 }
-
+FRandomStream Stream;
 void AHitScanWeaponBase::Fire()
 {
 	//GEngine->AddOnScreenDebugMessage(1, 1.0f, FColor::Red, TEXT("WeaponFireFunctionTriggered"));
@@ -28,6 +30,7 @@ void AHitScanWeaponBase::Fire()
 		if (!bNeedAmmo || bNeedAmmo && CurrentAmmoInMag>0)
 		{
 			if (bNeedAmmo)CurrentAmmoInMag -= 1;
+			CurrentRecoil += WeaponRecoil;
 			//GEngine->AddOnScreenDebugMessage(2, 1.0f, FColor::Red, TEXT("Fire"));
 			USkeletalMeshComponent* Mesh = this->GetMeshComp();
 			FVector EyeLocation;
@@ -44,14 +47,16 @@ void AHitScanWeaponBase::Fire()
 			{
 				if (Mesh&&Mesh->GetSocketByName("MuzzleLocation"))
 				{
-					UGameplayStatics::SpawnEmitterAtLocation(this, FireMuzzle, GunFireLocation, EyeRotation);
+					UGameplayStatics::SpawnEmitterAttached(FireMuzzle, Mesh, TEXT("MuzzleLocation"));
 					//GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("PlayMuzzle"));
 				}
 				
 			}
 			FVector ShotDirection = EyeRotation.Vector();
-
-			FVector TraceEnd = EyeLocation + (ShotDirection * 10000);
+			//ºó×øÁ¦
+			float RecoilXY = Stream.FRandRange(-CurrentRecoil, CurrentRecoil);
+			FVector RecoilVector(RecoilXY,RecoilXY,CurrentRecoil*10);
+			FVector TraceEnd = EyeLocation + (ShotDirection * 10000)+RecoilVector;
 
 			FCollisionQueryParams QueryParams;
 			QueryParams.AddIgnoredActor(WeaponOwner);
@@ -73,6 +78,14 @@ void AHitScanWeaponBase::Fire()
 			if(NoAmmoSound)
 			UGameplayStatics::PlaySoundAtLocation(this, NoAmmoSound, this->GetActorLocation());
 		}
+	}
+}
+
+void AHitScanWeaponBase::Tick(float DeltaTime)
+{
+	if (CurrentRecoil > 0 && bIsFiring == false)
+	{
+		CurrentRecoil -= (WeaponRecoil * 0.1);
 	}
 }
 

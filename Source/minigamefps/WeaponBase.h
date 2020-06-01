@@ -30,9 +30,14 @@ public:
 	bool bIsAutomatic;//是否为自动武器
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
 	float FireRate;//射速(两发子弹之间的延迟)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
+		float WeaponRecoil;//后坐力
+	float CurrentRecoil;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaTime) override;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
 		int MaxAmmoInMag;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
@@ -47,7 +52,7 @@ protected:
 		bool bNeedAmmo;
 	bool bIsReloading;
 	//开火函数
-	
+	bool bIsFiring;
 	//网格模型
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = "Components")
 	USkeletalMeshComponent* MeshComp;
@@ -62,7 +67,9 @@ protected:
 	USoundCue* NoAmmoSound;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
 	UParticleSystem* FireMuzzle;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+	UParticleSystem* ImpactEffect;
 public:	
 	FORCEINLINE USkeletalMeshComponent* GetMeshComp() const { return MeshComp; }
-
+	virtual void SetFiring(bool firing);
 };

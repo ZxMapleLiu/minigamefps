@@ -139,6 +139,7 @@ void AminigamefpsCharacter::Fire()
 	if (WeaponSlot != NULL && !bIsSprinting && !bIsRealoading)
 	{
 		WeaponSlot->Fire();
+		WeaponSlot->SetFiring(true);
 		if (WeaponSlot->bIsAutomatic == true)
 		{
 			GetWorldTimerManager().SetTimer(AutoWeaponFireTimerHandle, this, &AminigamefpsCharacter::CheckForAutoFire, WeaponSlot->FireRate);
@@ -153,6 +154,7 @@ void AminigamefpsCharacter::Fire()
 void AminigamefpsCharacter::StopFiring()
 {
 	bIsFiring = false;
+	WeaponSlot->SetFiring(false);
 }
 
 void AminigamefpsCharacter::StartReloading()

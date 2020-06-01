@@ -16,6 +16,7 @@ class MINIGAMEFPS_API AHitScanWeaponBase : public AWeaponBase
 	AHitScanWeaponBase();
 protected:
 	virtual void Fire();
+	virtual void Tick(float DeltaTime) override;
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
 	virtual void Reload();
 	virtual void EndReloading();
