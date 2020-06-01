@@ -12,7 +12,7 @@
 
 AHitScanWeaponBase::AHitScanWeaponBase()
 {
-	
+	PrimaryActorTick.bCanEverTick = true;
 	bNeedAmmo = true;
 	bIsReloading = false;
 	ReloadTime = 2.0f;
@@ -65,6 +65,11 @@ void AHitScanWeaponBase::Fire()
 			FHitResult Hit;
 			if (GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, TraceEnd, ECC_Visibility, QueryParams))
 			{
+				if (ImpactEffect)
+				{
+					FVector HitPoint = Hit.ImpactPoint;
+					UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactEffect, HitPoint);
+				}
 				//@TODO:击中目标，处理伤害
 				AActor* HitActor = Hit.GetActor();
 
@@ -85,7 +90,7 @@ void AHitScanWeaponBase::Tick(float DeltaTime)
 {
 	if (CurrentRecoil > 0 && bIsFiring == false)
 	{
-		CurrentRecoil -= (WeaponRecoil * 0.1);
+		CurrentRecoil -= WeaponRecoil;
 	}
 }
 
