@@ -86,6 +86,13 @@ void AminigamefpsCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 
 
 
+
+void AminigamefpsCharacter::GetActorEyesViewPoint(FVector& OutLocation, FRotator& OutRotation) const
+{
+	OutLocation = FollowCamera->GetComponentLocation();
+	OutRotation = FollowCamera->GetComponentRotation();
+}
+
 void AminigamefpsCharacter::TurnAtRate(float Rate)
 {
 	// calculate delta for this frame from the rate information

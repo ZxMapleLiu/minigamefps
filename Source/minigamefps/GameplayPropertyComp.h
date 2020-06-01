@@ -15,7 +15,8 @@ class MINIGAMEFPS_API UGameplayPropertyComp : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UGameplayPropertyComp();
-	FTimerHandle Handler;
+	FTimerHandle TimeHandler;//上一次受伤害的回复计时器
+	UFUNCTION()
 	void RecoverHealth();
 protected:
 	// Called when the game starts
@@ -36,7 +37,10 @@ public:
 	int GetHealth();
 	int GetMaxArmor();
 	int GetArmor();
-	void TakeDamage(int value);
+	UFUNCTION(BlueprintCallable, Category = "Gameplay")
+	void TakeDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Gameplay)
+	bool bIsDead;
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 

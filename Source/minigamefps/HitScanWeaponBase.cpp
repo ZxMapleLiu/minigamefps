@@ -23,7 +23,7 @@ FRandomStream Stream;
 void AHitScanWeaponBase::Fire()
 {
 	//GEngine->AddOnScreenDebugMessage(1, 1.0f, FColor::Red, TEXT("WeaponFireFunctionTriggered"));
-	AActor* WeaponOwner = GetOwner();//生成武器的时候记得设置拥有者
+	APawn* WeaponOwner = Cast<APawn>(GetOwner());//生成武器的时候记得设置拥有者
 	if (WeaponOwner && !bIsReloading)
 	{
 		//GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("OwnerDetected"));
@@ -68,7 +68,7 @@ void AHitScanWeaponBase::Fire()
 				if (ImpactEffect)
 				{
 					FVector HitPoint = Hit.ImpactPoint;
-					UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactEffect, HitPoint);
+					UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactEffect, HitPoint,Hit.ImpactNormal.Rotation());
 				}
 				//@TODO:击中目标，处理伤害
 				AActor* HitActor = Hit.GetActor();

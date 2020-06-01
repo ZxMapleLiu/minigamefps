@@ -2,7 +2,6 @@
 
 
 #include "GameplayPropertyComp.h"
-#include "minigamefpsCharacter.h"
 #include "GameFramework/Character.h"
 // Sets default values for this component's properties
 UGameplayPropertyComp::UGameplayPropertyComp()
@@ -14,6 +13,7 @@ UGameplayPropertyComp::UGameplayPropertyComp()
 	Health = 100;
 	MaxArmor = 100;
 	Armor = 100;
+	bIsDead = false;
 	// ...
 }
 
@@ -23,8 +23,12 @@ void UGameplayPropertyComp::BeginPlay()
 {
 	Super::BeginPlay();
 	// ...
-	TakeDamage(200);
 	
+	AActor* MyOwner = GetOwner();
+	if (MyOwner)
+	{
+		MyOwner->OnTakeAnyDamage.AddDynamic(this, &UGameplayPropertyComp::TakeDamage);
+	}
 }
 
 int UGameplayPropertyComp::GetMaxHealth()
@@ -47,39 +51,45 @@ int UGameplayPropertyComp::GetArmor()
 	return Armor;
 }
 
-void UGameplayPropertyComp::TakeDamage(int value)
+void UGameplayPropertyComp::TakeDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser)
 {
 	if (Armor == 0)
 	{
-		if (value < Health)Health -= value;
+		if (Damage < Health)Health -= Damage;
 		else
 		{
-			//TODO：角色死亡，传递信息给OwnerCharacter
-			ACharacter* CompOwner = Cast<AminigamefpsCharacter>(GetOwner());
+			bIsDead = true;
 			
 		}
+		if (bIsAbleToRecoverHealth == false)
+		{
+			GetWorld()->GetTimerManager().ClearTimer(TimeHandler); //如果当前已经是没有在自动回血的状态，那么使上次设置的延迟3秒后自动回血失效
+		}
 		bIsAbleToRecoverHealth = false;
+		GetWorld()->GetTimerManager().SetTimer(TimeHandler, this, &UGameplayPropertyComp::RecoverHealth, 3, false);
 	}
 	else
 	{
-		if (value <= Armor)
+		if (Damage <= Armor)
 		{
-			Armor -= value;
+			Armor -= Damage;
 		}
 		else
 		{
-			value -= Armor;
+			Damage -= Armor;
 			Armor = 0;
-			if (value < Health)Health -= value;
+			if (Damage < Health)Health -= Damage;
 			else
 			{
-				//TODO：角色死亡，传递信息给OwnerCharacter
-				ACharacter* CompOwner = Cast<AminigamefpsCharacter>(GetOwner());
+				bIsDead = true;
 				
 			}
+			if (bIsAbleToRecoverHealth == false)
+			{
+				GetWorld()->GetTimerManager().ClearTimer(TimeHandler); //如果当前已经是没有在自动回血的状态，那么使上次设置的延迟3秒后自动回血失效
+			}
 			bIsAbleToRecoverHealth = false;
-			//TODO：设置延迟喘气回血
-			GetWorld()->GetTimerManager().SetTimer(Handler,this, &UGameplayPropertyComp::RecoverHealth, 3, false, 0);
+			GetWorld()->GetTimerManager().SetTimer(TimeHandler,this, &UGameplayPropertyComp::RecoverHealth, 3, false); //如果不循环最后一个参数不要填
 		}
 	}
 }
@@ -87,18 +97,12 @@ void UGameplayPropertyComp::TakeDamage(int value)
 void UGameplayPropertyComp::RecoverHealth()
 {
 	bIsAbleToRecoverHealth = true;
-	if (bIsAbleToRecoverHealth)
-	{
-		return;
-	}
 }
 
 // Called every frame
 void UGameplayPropertyComp::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-	//TODO:写喘气神功的逻辑
-	// ...
 	if (bIsAbleToRecoverHealth == true && Health < MaxHealth && Health >0)
 	{
 		Health += 3;
