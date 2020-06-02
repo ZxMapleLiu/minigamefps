@@ -20,4 +20,6 @@ protected:
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
 	virtual void Reload();
 	virtual void EndReloading();
+	UPROPERTY(EditDefaultsOnly, Category = "Effect")
+	TSubclassOf<UCameraShake> FireCamShake;
 };

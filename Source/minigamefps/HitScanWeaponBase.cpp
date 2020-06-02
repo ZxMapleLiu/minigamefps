@@ -36,6 +36,7 @@ void AHitScanWeaponBase::Fire()
 			FVector EyeLocation;
 			FRotator EyeRotation;
 			WeaponOwner->GetActorEyesViewPoint(EyeLocation, EyeRotation);
+			
 			//播放开枪效果和音效
 			FVector GunFireLocation = Mesh->GetSocketByName("MuzzleLocation")->GetSocketLocation(Mesh);
 			if (FireSound != NULL)
@@ -53,6 +54,15 @@ void AHitScanWeaponBase::Fire()
 				
 			}
 			FVector ShotDirection = EyeRotation.Vector();
+			if (WeaponOwner)
+			{
+				APlayerController* PC = Cast<APlayerController>(WeaponOwner->GetController());
+				if (PC)
+				{
+					PC->ClientPlayCameraShake(FireCamShake);
+				}
+			}
+
 			//后坐力
 			float RecoilXY = Stream.FRandRange(-CurrentRecoil, CurrentRecoil);
 			FVector RecoilVector(RecoilXY,RecoilXY,CurrentRecoil*10);
