@@ -42,6 +42,7 @@ public:
 	void EndReloading();//不会被自己调用，只会被武器的类调用
 
 protected:
+	virtual void BeginPlay() override;
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
 
@@ -68,8 +69,10 @@ protected:
 	void StopFiring();
 	
 	void StartReloading();
-	
-
+	UFUNCTION()
+	void OnHealthChanged(UGameplayPropertyComp* GameplayComp, float Health, float Armor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
+	UPROPERTY(BlueprintReadOnly,Category = "Gameplay")
+	bool bDied;
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;

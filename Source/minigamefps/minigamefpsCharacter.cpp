@@ -49,6 +49,7 @@ AminigamefpsCharacter::AminigamefpsCharacter()
 	FollowCamera->bUsePawnControlRotation = true;
 
 	GameplayPropertyComp = CreateDefaultSubobject<UGameplayPropertyComp>(TEXT("GameplayPropertyComp"));
+	
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 }
@@ -173,9 +174,32 @@ void AminigamefpsCharacter::StartReloading()
 	}
 }
 
+
+void AminigamefpsCharacter::OnHealthChanged(UGameplayPropertyComp* GameplayComp, float Health, float Armor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser)
+{
+	if (Health <= 0.0f && !bDied)
+	{
+		bDied = true;
+		//ËÀÍöÅÐ¶¨
+		GetMovementComponent()->StopMovementImmediately();
+		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
+		DetachFromControllerPendingDestroy();
+
+		SetLifeSpan(10.0f);
+	}
+}
+
 void AminigamefpsCharacter::EndReloading()
 {
 	bIsRealoading = false;
+}
+
+
+void AminigamefpsCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+	GameplayPropertyComp->OnHealthChanged.AddDynamic(this, &AminigamefpsCharacter::OnHealthChanged);
 }
 
 void AminigamefpsCharacter::MoveForward(float Value)

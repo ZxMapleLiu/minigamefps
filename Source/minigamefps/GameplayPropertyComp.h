@@ -41,10 +41,8 @@ public:
 	int GetArmor();
 	UFUNCTION(BlueprintCallable, Category = "Gameplay")
 	void TakeDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Gameplay)
-	bool bIsDead;
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-	UPROPERTY(BlueprintAssignable,Category = "Event")
+	UPROPERTY(BlueprintAssignable,Category = "Events")
 	FOnHealthChangeSignature OnHealthChanged;
 };

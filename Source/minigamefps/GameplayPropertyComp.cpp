@@ -13,7 +13,6 @@ UGameplayPropertyComp::UGameplayPropertyComp()
 	Health = 100;
 	MaxArmor = 100;
 	Armor = 100;
-	bIsDead = false;
 	// ...
 }
 
@@ -29,6 +28,7 @@ void UGameplayPropertyComp::BeginPlay()
 	{
 		MyOwner->OnTakeAnyDamage.AddDynamic(this, &UGameplayPropertyComp::TakeDamage);
 	}
+	
 }
 
 int UGameplayPropertyComp::GetMaxHealth()
@@ -58,7 +58,6 @@ void UGameplayPropertyComp::TakeDamage(AActor* DamagedActor, float Damage, const
 		if (Damage < Health)Health -= Damage;
 		else
 		{
-			bIsDead = true;
 			Health = 0;
 		}
 		if (bIsAbleToRecoverHealth == false)
@@ -81,7 +80,6 @@ void UGameplayPropertyComp::TakeDamage(AActor* DamagedActor, float Damage, const
 			if (Damage < Health)Health -= Damage;
 			else
 			{
-				bIsDead = true;
 				Health = 0;
 			}
 			if (bIsAbleToRecoverHealth == false)
