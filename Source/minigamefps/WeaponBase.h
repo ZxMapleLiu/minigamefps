@@ -32,6 +32,7 @@ public:
 	float FireRate;//射速(两发子弹之间的延迟)
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
 		float WeaponRecoil;//后坐力
+
 	float CurrentRecoil;
 
 protected:
@@ -48,6 +49,10 @@ protected:
 		int CurrentReservedAmmo;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
 		int WeaponDamage;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
+		int WeaponHeadshotDamage;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
+	bool bIsAbleToHeadshot;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")//需要使用子弹进行攻击
 		bool bNeedAmmo;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")

@@ -21,3 +21,6 @@
 #define SURFACE_TYPE_PAPER			SurfaceType17
 #define SURFACE_TYPE_ARMOR			SurfaceType18
 #define SURFACE_TYPE_HS				SurfaceType19
+
+
+#define COLLISION_WEAPON			ECC_GameTraceChannel1

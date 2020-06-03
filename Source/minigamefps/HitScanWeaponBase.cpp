@@ -20,6 +20,9 @@ AHitScanWeaponBase::AHitScanWeaponBase()
 	ReloadTime = 2.0f;
 	bIsAutomatic = true;
 	FireRate = 0.1f;
+	bIsAbleToHeadshot = true;
+	WeaponDamage = 25;
+	WeaponHeadshotDamage = WeaponDamage * 4;
 }
 FRandomStream Stream;
 void AHitScanWeaponBase::Fire()
@@ -75,7 +78,7 @@ void AHitScanWeaponBase::Fire()
 			QueryParams.AddIgnoredActor(this);
 			QueryParams.bTraceComplex = true;
 			FHitResult Hit;
-			if (GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, TraceEnd, ECC_Visibility, QueryParams))
+			if (GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, TraceEnd, COLLISION_WEAPON, QueryParams))
 			{
 				
 
@@ -156,8 +159,16 @@ void AHitScanWeaponBase::Fire()
 
 				//@TODO:击中目标，处理伤害
 				AActor* HitActor = Hit.GetActor();
+				if (SurfaceType == SURFACE_TYPE_HS)
+				{
+					UGameplayStatics::ApplyPointDamage(HitActor, WeaponHeadshotDamage, ShotDirection, Hit, WeaponOwner->GetInstigatorController(), this, DamageType);
+				}
+				else
+				{
+					UGameplayStatics::ApplyPointDamage(HitActor, WeaponDamage, ShotDirection, Hit, WeaponOwner->GetInstigatorController(), this, DamageType);
 
-				UGameplayStatics::ApplyPointDamage(HitActor, 20.0f, ShotDirection, Hit, WeaponOwner->GetInstigatorController(), this, DamageType);
+				}
+				
 				//注意：角色的承受伤害函数在C++中无法重写，需要在蓝图中实现
 				//参见Actor类TakenDamage的声明
 			}
