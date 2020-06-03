@@ -25,6 +25,7 @@ public:
 	virtual void Reload();
 	virtual void EndReloading();
 	FTimerHandle ReloadTimer;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
 	float ReloadTime;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
 	bool bIsAutomatic;//是否为自动武器
@@ -32,7 +33,6 @@ public:
 	float FireRate;//射速(两发子弹之间的延迟)
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
 		float WeaponRecoil;//后坐力
-
 	float CurrentRecoil;
 
 protected:
@@ -41,7 +41,7 @@ protected:
 	virtual void Tick(float DeltaTime) override;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
 		int MaxAmmoInMag;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
 		int CurrentAmmoInMag;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
 		int MaxReservedAmmo;

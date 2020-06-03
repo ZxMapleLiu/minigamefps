@@ -40,6 +40,8 @@ void AAICharacterBase::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 }
 void AAICharacterBase::OnHealthChanged(UGameplayPropertyComp* GameplayComp, float Health, float Armor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser)
 {
+	FString s = FString::SanitizeFloat(Damage);
+	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, s);
 	if (Health <= 0.0f && !bDied)
 	{
 		bDied = true;
