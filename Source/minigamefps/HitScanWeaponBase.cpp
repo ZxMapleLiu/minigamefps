@@ -2,10 +2,12 @@
 
 
 #include "HitScanWeaponBase.h"
+#include "minigamefps.h"
 #include "Sound/SoundCue.h"
 #include "minigamefpsCharacter.h"
 #include "Particles/ParticleEmitter.h"
 #include "Particles/ParticleSystemComponent.h"
+#include "PhysicalMaterials/PhysicalMaterial.h"
 #include "Engine/SkeletalMesh.h"
 #include "Engine/SkeletalMeshSocket.h"
 #include "Kismet/GameplayStatics.h"
@@ -75,11 +77,83 @@ void AHitScanWeaponBase::Fire()
 			FHitResult Hit;
 			if (GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, TraceEnd, ECC_Visibility, QueryParams))
 			{
-				if (ImpactEffect)
+				
+
+
+				EPhysicalSurface SurfaceType = UPhysicalMaterial::DetermineSurfaceType(Hit.PhysMaterial.Get());
+				UParticleSystem* SelectedEffect = nullptr;
+				switch (SurfaceType)
+				{
+				case SurfaceType_Default:
+					SelectedEffect = DefaultImpactEffect;
+					break;
+				case SURFACE_TYPE_METAL:
+					SelectedEffect = MetalImpactEffect;
+					break;
+				case SURFACE_TYPE_WOOD:
+					SelectedEffect = WoodImpactEffect;
+					break;
+				case SURFACE_TYPE_STONE:
+					SelectedEffect = StoneImpactEffect;
+					break;
+				case SURFACE_TYPE_ELECTRIC:
+					SelectedEffect = ElectricImpactEffect;
+					break;
+				case SURFACE_TYPE_CONCRETE:
+					SelectedEffect = ConcreteImpactEffect;
+					break;
+				case SURFACE_TYPE_FLESH:
+					SelectedEffect = FleshImpactEffect;
+					break;
+				case SURFACE_TYPE_BRICK:
+					SelectedEffect = BrickImpactEffect;
+					break;
+				case SURFACE_TYPE_WATER:
+					SelectedEffect = WaterImpactEffect;
+					break;
+				case SURFACE_TYPE_LEAF:
+					SelectedEffect = LeafImpactEffect;
+					break;
+				case SURFACE_TYPE_GRASS:
+					SelectedEffect = GrassImpactEffect;
+					break;
+				case SURFACE_TYPE_GLASS:
+					SelectedEffect = GlassImpactEffect;
+					break;
+				case SURFACE_TYPE_SNOW:
+					SelectedEffect = SnowImpactEffect;
+					break;
+				case SURFACE_TYPE_ICE:
+					SelectedEffect = IceImpactEffect;
+					break;
+				case SURFACE_TYPE_CLOTH:
+					SelectedEffect = ClothImpactEffect;
+					break;
+				case SurfaceType15:
+					SelectedEffect = DefaultImpactEffect;
+					break;
+				case SURFACE_TYPE_SAND:
+					SelectedEffect = SandImpactEffect;
+					break;
+				case SURFACE_TYPE_PAPER:
+					SelectedEffect = PaperImpactEffect;
+					break;
+				case SURFACE_TYPE_ARMOR:
+					SelectedEffect = ArmorImpactEffect;
+					break;
+				case SURFACE_TYPE_HS:
+					SelectedEffect = HeadShotImpactEffect;
+					break;
+				default:
+					SelectedEffect = DefaultImpactEffect;
+					break;
+				}
+				if (SelectedEffect)
 				{
 					FVector HitPoint = Hit.ImpactPoint;
-					UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactEffect, HitPoint,Hit.ImpactNormal.Rotation());
+					UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), SelectedEffect, HitPoint, Hit.ImpactNormal.Rotation());
 				}
+
 				//@TODO:击中目标，处理伤害
 				AActor* HitActor = Hit.GetActor();
 

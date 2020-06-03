@@ -70,7 +70,43 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
 	UParticleSystem* FireMuzzle;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
-	UParticleSystem* ImpactEffect;
+	UParticleSystem* DefaultImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* FleshImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* HeadShotImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* GlassImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* ConcreteImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* MetalImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* WoodImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* StoneImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* ElectricImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* BrickImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* WaterImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* LeafImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* GrassImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* SnowImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* IceImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* ClothImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* SandImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* PaperImpactEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect")
+		UParticleSystem* ArmorImpactEffect;
 public:	
 	FORCEINLINE USkeletalMeshComponent* GetMeshComp() const { return MeshComp; }
 	virtual void SetFiring(bool firing);
