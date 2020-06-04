@@ -29,6 +29,7 @@ void AHitScanWeaponBase::Fire()
 {
 	//GEngine->AddOnScreenDebugMessage(1, 1.0f, FColor::Red, TEXT("WeaponFireFunctionTriggered"));
 	APawn* WeaponOwner = Cast<APawn>(GetOwner());//生成武器的时候记得设置拥有者
+
 	if (WeaponOwner && !bIsReloading)
 	{
 		//GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("OwnerDetected"));
