@@ -75,6 +75,7 @@ void AHitScanWeaponBase::Fire()
 			FVector TraceEnd = EyeLocation + (ShotDirection * 10000)+RecoilVector;
 
 			FCollisionQueryParams QueryParams;
+			QueryParams.bReturnPhysicalMaterial = true;//返回物理材质
 			QueryParams.AddIgnoredActor(WeaponOwner);
 			QueryParams.AddIgnoredActor(this);
 			QueryParams.bTraceComplex = true;
