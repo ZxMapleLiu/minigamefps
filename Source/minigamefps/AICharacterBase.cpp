@@ -47,10 +47,10 @@ void AAICharacterBase::OnHealthChanged(UGameplayPropertyComp* GameplayComp, floa
 		bDied = true;
 		//�����ж�
 		GetMovementComponent()->StopMovementImmediately();
-		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		GetMesh()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("AI DIE"));
 		DetachFromControllerPendingDestroy();
 		WeaponSlot->Destroy();
-		SetLifeSpan(0.5f);
+		SetLifeSpan(3.f);//TODO：根据死亡动画长度设置时间
 	}
 }
