@@ -21,7 +21,7 @@ AAICharacterBase::AAICharacterBase()
 void AAICharacterBase::BeginPlay()
 {
 	Super::BeginPlay();
-	//°ó¶¨Î¯ÍÐ
+	//ï¿½ï¿½Î¯ï¿½ï¿½
 	GameplayPropertyComp->OnHealthChanged.AddDynamic(this, &AAICharacterBase::OnHealthChanged);
 }
 
@@ -45,7 +45,7 @@ void AAICharacterBase::OnHealthChanged(UGameplayPropertyComp* GameplayComp, floa
 	if (Health <= 0.0f && !bDied)
 	{
 		bDied = true;
-		//ËÀÍöÅÐ¶¨
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
 		GetMovementComponent()->StopMovementImmediately();
 		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("AI DIE"));
