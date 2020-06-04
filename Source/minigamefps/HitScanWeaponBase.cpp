@@ -82,9 +82,7 @@ void AHitScanWeaponBase::Fire()
 			FHitResult Hit;
 			if (GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, TraceEnd, COLLISION_WEAPON, QueryParams))
 			{
-				
-
-
+				//确定物理材质播放相应集中效果
 				EPhysicalSurface SurfaceType = UPhysicalMaterial::DetermineSurfaceType(Hit.PhysMaterial.Get());
 				UParticleSystem* SelectedEffect = nullptr;
 				switch (SurfaceType)
@@ -159,7 +157,7 @@ void AHitScanWeaponBase::Fire()
 					UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), SelectedEffect, HitPoint, Hit.ImpactNormal.Rotation());
 				}
 
-				//@TODO:击中目标，处理伤害
+				//击中目标，处理伤害
 				AActor* HitActor = Hit.GetActor();
 				if (SurfaceType == SURFACE_TYPE_HS)
 				{
@@ -170,8 +168,7 @@ void AHitScanWeaponBase::Fire()
 					UGameplayStatics::ApplyPointDamage(HitActor, WeaponDamage, ShotDirection, Hit, WeaponOwner->GetInstigatorController(), this, DamageType);
 
 				}
-				
-				//注意：角色的承受伤害函数在C++中无法重写，需要在蓝图中实现
+				//注意：角色的承受伤害需要在蓝图中实现或者使用绑定函数
 				//参见Actor类TakenDamage的声明
 			}
 		}
@@ -199,6 +196,11 @@ void AHitScanWeaponBase::Reload()
 		UGameplayStatics::PlaySoundAtLocation(this, ReloadSound, this->GetActorLocation());
 		GetWorldTimerManager().SetTimer(ReloadTimer, this, &AHitScanWeaponBase::EndReloading, ReloadTime);
 	}
+	else
+	{
+		Cast<AminigamefpsCharacter>(GetOwner())->EndReloading();
+	}
+
 }
 void AHitScanWeaponBase::EndReloading()
 {
