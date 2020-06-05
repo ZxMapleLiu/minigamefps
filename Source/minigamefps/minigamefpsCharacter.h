@@ -39,6 +39,8 @@ public:
 	bool bIsRealoading;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	AWeaponBase* WeaponSlot;
+	
+
 	void EndReloading();//不会被自己调用，只会被武器的类调用
 
 protected:

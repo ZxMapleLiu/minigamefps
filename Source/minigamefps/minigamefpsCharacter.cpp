@@ -161,8 +161,12 @@ void AminigamefpsCharacter::Fire()
 
 void AminigamefpsCharacter::StopFiring()
 {
-	bIsFiring = false;
-	WeaponSlot->SetFiring(false);
+	if (bIsFiring && WeaponSlot != NULL)
+	{
+		bIsFiring = false;
+		WeaponSlot->SetFiring(false);
+	}
+	
 }
 
 void AminigamefpsCharacter::StartReloading()
@@ -183,6 +187,8 @@ void AminigamefpsCharacter::OnHealthChanged(UGameplayPropertyComp* GameplayComp,
 		//ËÀÍöÅÐ¶¨
 		GetMovementComponent()->StopMovementImmediately();
 		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		WeaponSlot->SetOwner(nullptr);
+
 
 		DetachFromControllerPendingDestroy();
 

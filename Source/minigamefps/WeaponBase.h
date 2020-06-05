@@ -10,6 +10,7 @@ class USkeletalMeshComponent;
 class UDamageType;
 class USoundCue;
 class UParticleEmitter;
+
 UCLASS()
 class MINIGAMEFPS_API AWeaponBase : public AActor
 {
@@ -34,7 +35,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
 		float WeaponRecoil;//ºó×øÁ¦
 	float CurrentRecoil;
-
+/*	UFUNCTION()*/
+/*	void Overlap(AActor* OverlappedActor, AActor* OtherActor);*/
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -115,4 +117,5 @@ protected:
 public:	
 	FORCEINLINE USkeletalMeshComponent* GetMeshComp() const { return MeshComp; }
 	virtual void SetFiring(bool firing);
+	virtual void SetOwner(AActor* NewOwner) override;
 };

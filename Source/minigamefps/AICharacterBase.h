@@ -25,6 +25,8 @@ protected:
 		void OnHealthChanged(UGameplayPropertyComp* GameplayComp, float Health, float Armor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
 	UPROPERTY(BlueprintReadOnly, Category = Gameplay)
 		bool bDied;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Animation)
+		UAnimationAsset* HitReact;//»÷ÖÐ¶¯»­
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

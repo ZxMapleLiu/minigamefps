@@ -218,3 +218,8 @@ void AHitScanWeaponBase::EndReloading()
 	GetWorldTimerManager().ClearTimer(ReloadTimer);
 	bIsReloading = false;
 }
+
+void AHitScanWeaponBase::BeginPlay()
+{
+	Super::BeginPlay();
+}
