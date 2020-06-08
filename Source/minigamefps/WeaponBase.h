@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "InteractableInterface.h"
 #include "WeaponBase.generated.h"
 
 class USkeletalMeshComponent;
@@ -12,7 +13,7 @@ class USoundCue;
 class UParticleEmitter;
 
 UCLASS()
-class MINIGAMEFPS_API AWeaponBase : public AActor
+class MINIGAMEFPS_API AWeaponBase : public AActor,public IInteractableInterface
 {
 	GENERATED_BODY()
 	
@@ -118,4 +119,5 @@ public:
 	FORCEINLINE USkeletalMeshComponent* GetMeshComp() const { return MeshComp; }
 	virtual void SetFiring(bool firing);
 	virtual void SetOwner(AActor* NewOwner) override;
+	virtual void React(AActor* OtherActor) override;
 };

@@ -69,7 +69,7 @@ protected:
 	void StartFiring();
 	void Fire();
 	void StopFiring();
-	
+	void Interact();
 	void StartReloading();
 	UFUNCTION()
 	void OnHealthChanged(UGameplayPropertyComp* GameplayComp, float Health, float Armor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
@@ -88,5 +88,6 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UGameplayPropertyComp* GetGameplayPropertyComp() const { return GameplayPropertyComp; }
 	virtual void GetActorEyesViewPoint(FVector& OutLocation, FRotator& OutRotation) const override;
+	void DropWeapon();
 };
 

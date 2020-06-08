@@ -2,6 +2,7 @@
 
 
 #include "WeaponBase.h"
+#include "InteractableInterface.h"
 #include "minigamefpsCharacter.h"
 // Sets default values
 AWeaponBase::AWeaponBase()
@@ -55,6 +56,18 @@ void AWeaponBase::SetOwner(AActor* NewOwner)
 		Super::SetOwner(NewOwner);
 		this->GetMeshComp()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 		this->GetMeshComp()->SetAllBodiesSimulatePhysics(true);
+	}
+}
+
+void AWeaponBase::React(AActor* OtherActor)
+{
+	AminigamefpsCharacter* PlayerChar = Cast<AminigamefpsCharacter>(OtherActor);
+	if (PlayerChar)
+	{
+		PlayerChar->DropWeapon();
+		SetOwner(PlayerChar);
+		this->AttachToComponent(PlayerChar->GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, TEXT("weapon_socket"));
+		PlayerChar->WeaponSlot = this;
 	}
 }
 

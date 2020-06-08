@@ -70,6 +70,8 @@ void AminigamefpsCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AminigamefpsCharacter::StopSprinting);
 	PlayerInputComponent->BindAction("Reload", IE_Pressed, this, &AminigamefpsCharacter::StartReloading);
 
+	PlayerInputComponent->BindAction("Use", IE_Pressed, this, &AminigamefpsCharacter::Interact);
+
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &AminigamefpsCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AminigamefpsCharacter::MoveRight);
@@ -92,6 +94,15 @@ void AminigamefpsCharacter::GetActorEyesViewPoint(FVector& OutLocation, FRotator
 {
 	OutLocation = FollowCamera->GetComponentLocation();
 	OutRotation = FollowCamera->GetComponentRotation();
+}
+
+void AminigamefpsCharacter::DropWeapon()
+{
+	if (WeaponSlot)
+	{
+		WeaponSlot->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		WeaponSlot->SetOwner(nullptr);
+	}
 }
 
 void AminigamefpsCharacter::TurnAtRate(float Rate)
@@ -167,6 +178,25 @@ void AminigamefpsCharacter::StopFiring()
 		WeaponSlot->SetFiring(false);
 	}
 	
+}
+
+void AminigamefpsCharacter::Interact()
+{
+	GEngine->AddOnScreenDebugMessage(3, 3.f, FColor::Red, TEXT("Interact Pressed"));
+	FHitResult Hit;
+	FVector EyeLocation;
+	FRotator EyeRotation;
+	GetActorEyesViewPoint(EyeLocation, EyeRotation);
+	FVector ShotDirection = EyeRotation.Vector();
+	FVector TraceEnd = EyeLocation + (ShotDirection * 1000);
+	FCollisionQueryParams QueryParams;
+	QueryParams.AddIgnoredActor(this);
+	GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, TraceEnd, ECC_Visibility, QueryParams);
+	IInteractableInterface* InteractObject = Cast<IInteractableInterface>(Hit.Actor);
+	if (InteractObject)
+	{
+		InteractObject->React(this);
+	}
 }
 
 void AminigamefpsCharacter::StartReloading()
