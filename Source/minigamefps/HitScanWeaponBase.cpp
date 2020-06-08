@@ -222,4 +222,6 @@ void AHitScanWeaponBase::EndReloading()
 void AHitScanWeaponBase::BeginPlay()
 {
 	Super::BeginPlay();
+	
 }
+

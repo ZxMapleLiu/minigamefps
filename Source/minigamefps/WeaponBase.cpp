@@ -6,6 +6,7 @@
 // Sets default values
 AWeaponBase::AWeaponBase()
 {
+	PrimaryActorTick.bCanEverTick = true;
 	MeshComp = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("MeshComp"));
 	RootComponent = MeshComp;
 	bIsReloading = false;
