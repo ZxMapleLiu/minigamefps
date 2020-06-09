@@ -187,14 +187,13 @@ void AHitScanWeaponBase::Fire()
 	else
 		//owner为AI时
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("AI FIRE!"));
+		//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("AI FIRE!"));
 		if (WeaponOwner && !bIsReloading)
 		{
 			//GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("OwnerDetected"));
 			if (CurrentAmmoInMag > 0)
 			{
 				if (bNeedAmmo)CurrentAmmoInMag -= 1;
-				CurrentRecoil += WeaponRecoil;
 				//GEngine->AddOnScreenDebugMessage(2, 1.0f, FColor::Red, TEXT("Fire"));
 				USkeletalMeshComponent* Mesh = this->GetMeshComp();
 				FVector EyeLocation;
@@ -226,12 +225,6 @@ void AHitScanWeaponBase::Fire()
 						PC->ClientPlayCameraShake(FireCamShake);
 					}
 				}
-
-				//后坐力
-				float RecoilXY = Stream.FRandRange(-CurrentRecoil, CurrentRecoil);
-				FVector RecoilVector(RecoilXY, RecoilXY, CurrentRecoil * 10);
-				FVector TraceEnd = EyeLocation + (ShotDirection * 10000) + RecoilVector;
-
 				FCollisionQueryParams QueryParams;
 				QueryParams.bReturnPhysicalMaterial = true;//返回物理材质
 				QueryParams.AddIgnoredActor(WeaponOwner);
@@ -242,7 +235,10 @@ void AHitScanWeaponBase::Fire()
 				APawn* playerPawn = Cast<APawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 				if (playerPawn)
 				{
-					FVector playerLocation = playerPawn->GetTargetLocation();
+					float missX = Stream.RandRange(-100, 100);
+					float missY = Stream.RandRange(-100, 100);
+					float missZ = Stream.RandRange(-100, 100);
+					FVector playerLocation = playerPawn->GetTargetLocation()+FVector(missX,missY,missZ);
 					if (GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, playerLocation, COLLISION_WEAPON, QueryParams))
 					{
 
@@ -326,11 +322,11 @@ void AHitScanWeaponBase::Fire()
 						AActor* HitActor = Hit.GetActor();
 						if (SurfaceType == SURFACE_TYPE_HS)
 						{
-							//UGameplayStatics::ApplyPointDamage(HitActor, WeaponHeadshotDamage, ShotDirection, Hit, WeaponOwner->GetInstigatorController(), this, DamageType);
+							UGameplayStatics::ApplyPointDamage(HitActor, WeaponHeadshotDamage, ShotDirection, Hit, WeaponOwner->GetInstigatorController(), this, DamageType);
 						}
 						else
 						{
-							//UGameplayStatics::ApplyPointDamage(HitActor, WeaponDamage, ShotDirection, Hit, WeaponOwner->GetInstigatorController(), this, DamageType);
+							UGameplayStatics::ApplyPointDamage(HitActor, WeaponDamage, ShotDirection, Hit, WeaponOwner->GetInstigatorController(), this, DamageType);
 
 						}
 
