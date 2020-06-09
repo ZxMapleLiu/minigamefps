@@ -45,17 +45,17 @@ void AHitScanWeaponBase::Fire()
 			
 			//播放开枪效果和音效
 			FVector GunFireLocation = Mesh->GetSocketByName("MuzzleLocation")->GetSocketLocation(Mesh);
-			if (FireSound != NULL)
+			if (FireSound != nullptr)
 			{
 				UGameplayStatics::PlaySoundAtLocation(this,FireSound,GunFireLocation,EyeRotation);
-				//GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("PlaySound"));
+				GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("PlaySound"));
 			}
-			if (FireMuzzle != NULL)
+			if (FireMuzzle != nullptr)
 			{
 				if (Mesh&&Mesh->GetSocketByName("MuzzleLocation"))
 				{
 					UGameplayStatics::SpawnEmitterAttached(FireMuzzle, Mesh, TEXT("MuzzleLocation"));
-					//GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("PlayMuzzle"));
+					GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("PlayMuzzle"));
 				}
 				
 			}
