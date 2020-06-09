@@ -9,6 +9,7 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "GameplayPropertyComp.h"
+#include "GameFramework/PawnMovementComponent.h"
 //////////////////////////////////////////////////////////////////////////
 // AminigamefpsCharacter
 
@@ -28,8 +29,7 @@ AminigamefpsCharacter::AminigamefpsCharacter()
 	bUseControllerRotationRoll = false;
 	GetCharacterMovement()->MaxWalkSpeed = 250;
 	GetCharacterMovement()->MaxWalkSpeedCrouched = 200;
-
-
+	GetMovementComponent()->GetNavAgentPropertiesRef().bCanCrouch = true;
 	// Configure character movement
 	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // ...at this rotation rate
@@ -54,6 +54,29 @@ AminigamefpsCharacter::AminigamefpsCharacter()
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 }
 
+void AminigamefpsCharacter::SwitchPosition()
+{
+	if (!(bIsCrouched))
+	{
+		this->BeginCrouch();
+	}
+	else
+	{
+		this->EndCrouch();
+	}
+}
+
+void AminigamefpsCharacter::BeginCrouch()
+{
+	Crouch();
+}
+
+
+void AminigamefpsCharacter::EndCrouch()
+{
+	UnCrouch();
+}
+
 //////////////////////////////////////////////////////////////////////////
 // Input
 
@@ -72,6 +95,7 @@ void AminigamefpsCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 
 	PlayerInputComponent->BindAction("Use", IE_Pressed, this, &AminigamefpsCharacter::Interact);
 
+	PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &AminigamefpsCharacter::SwitchPosition);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &AminigamefpsCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AminigamefpsCharacter::MoveRight);

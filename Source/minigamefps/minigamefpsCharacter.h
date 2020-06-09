@@ -75,6 +75,9 @@ protected:
 	void OnHealthChanged(UGameplayPropertyComp* GameplayComp, float Health, float Armor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
 	UPROPERTY(BlueprintReadOnly,Category = "Gameplay")
 	bool bDied;
+	void SwitchPosition();
+	void BeginCrouch();
+	void EndCrouch();
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -89,5 +92,7 @@ public:
 	FORCEINLINE class UGameplayPropertyComp* GetGameplayPropertyComp() const { return GameplayPropertyComp; }
 	virtual void GetActorEyesViewPoint(FVector& OutLocation, FRotator& OutRotation) const override;
 	void DropWeapon();
+	UFUNCTION(BlueprintCallable)
+	bool GetCrouchingStates() const {return bIsCrouched;}
 };
 

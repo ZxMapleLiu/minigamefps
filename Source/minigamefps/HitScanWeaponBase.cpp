@@ -30,34 +30,16 @@ FRandomStream Stream;
 void AHitScanWeaponBase::Fire()
 {
 	//GEngine->AddOnScreenDebugMessage(1, 1.0f, FColor::Red, TEXT("WeaponFireFunctionTriggered"));
-	
-	
-	APawn* WeaponOwner = Cast<APawn>(GetOwner());//����������ʱ��ǵ�����ӵ����
-	//�ж�owner�Ƿ�Ϊ���
+
+
+	APawn* WeaponOwner = Cast<APawn>(GetOwner());//生成武器的时候记得设置拥有者
+	//判断owner是否为玩家
 	if (WeaponOwner->GetClass()->IsChildOf(AminigamefpsCharacter::StaticClass()))
 	{
 		if (WeaponOwner && !bIsReloading)
 		{
-
-			if (bNeedAmmo)CurrentAmmoInMag -= 1;
-			CurrentRecoil += WeaponRecoil;
-			//GEngine->AddOnScreenDebugMessage(2, 1.0f, FColor::Red, TEXT("Fire"));
-			USkeletalMeshComponent* Mesh = this->GetMeshComp();
-			FVector EyeLocation;
-			FRotator EyeRotation;
-			WeaponOwner->GetActorEyesViewPoint(EyeLocation, EyeRotation);
-			
-			//���ſ�ǹЧ������Ч
-			FVector GunFireLocation = Mesh->GetSocketByName("MuzzleLocation")->GetSocketLocation(Mesh);
-			if (FireSound != nullptr)
-			{
-				UGameplayStatics::PlaySoundAtLocation(this,FireSound,GunFireLocation,EyeRotation);
-				GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("PlaySound"));
-			}
-			if (FireMuzzle != nullptr)
 			//GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("OwnerDetected"));
 			if (!bNeedAmmo || bNeedAmmo && CurrentAmmoInMag > 0)
-
 			{
 				if (bNeedAmmo)CurrentAmmoInMag -= 1;
 				CurrentRecoil += WeaponRecoil;
@@ -67,7 +49,7 @@ void AHitScanWeaponBase::Fire()
 				FRotator EyeRotation;
 				WeaponOwner->GetActorEyesViewPoint(EyeLocation, EyeRotation);
 
-				//���ſ�ǹЧ������Ч
+				//播放开枪效果和音效
 				FVector GunFireLocation = Mesh->GetSocketByName("MuzzleLocation")->GetSocketLocation(Mesh);
 				if (FireSound != NULL)
 				{
@@ -76,7 +58,7 @@ void AHitScanWeaponBase::Fire()
 				}
 				if (FireMuzzle != NULL)
 				{
-					if (Mesh&&Mesh->GetSocketByName("MuzzleLocation"))
+					if (Mesh && Mesh->GetSocketByName("MuzzleLocation"))
 					{
 						UGameplayStatics::SpawnEmitterAttached(FireMuzzle, Mesh, TEXT("MuzzleLocation"));
 						//GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("PlayMuzzle"));
@@ -92,13 +74,13 @@ void AHitScanWeaponBase::Fire()
 					}
 				}
 
-				//������
+				//后坐力
 				float RecoilXY = Stream.FRandRange(-CurrentRecoil, CurrentRecoil);
 				FVector RecoilVector(RecoilXY, RecoilXY, CurrentRecoil * 10);
 				FVector TraceEnd = EyeLocation + (ShotDirection * 10000) + RecoilVector;
 
 				FCollisionQueryParams QueryParams;
-				QueryParams.bReturnPhysicalMaterial = true;//������������
+				QueryParams.bReturnPhysicalMaterial = true;//返回物理材质
 				QueryParams.AddIgnoredActor(WeaponOwner);
 				QueryParams.AddIgnoredActor(this);
 				QueryParams.bTraceComplex = true;
@@ -179,7 +161,7 @@ void AHitScanWeaponBase::Fire()
 						UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), SelectedEffect, HitPoint, Hit.ImpactNormal.Rotation());
 					}
 
-					//@TODO:����Ŀ�꣬�����˺�
+					//@TODO:击中目标，处理伤害
 					AActor* HitActor = Hit.GetActor();
 					if (SurfaceType == SURFACE_TYPE_HS)
 					{
@@ -191,8 +173,8 @@ void AHitScanWeaponBase::Fire()
 
 					}
 
-					//ע�⣺��ɫ�ĳ����˺�������C++���޷���д����Ҫ����ͼ��ʵ��
-					//�μ�Actor��TakenDamage������
+					//注意：角色的承受伤害函数在C++中无法重写，需要在蓝图中实现
+					//参见Actor类TakenDamage的声明
 				}
 			}
 			if (bNeedAmmo && CurrentAmmoInMag == 0)
@@ -203,7 +185,7 @@ void AHitScanWeaponBase::Fire()
 		}
 	}
 	else
-	//ownerΪAIʱ
+		//owner为AI时
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("AI FIRE!"));
 		if (WeaponOwner && !bIsReloading)
@@ -219,7 +201,7 @@ void AHitScanWeaponBase::Fire()
 				FRotator EyeRotation;
 				WeaponOwner->GetActorEyesViewPoint(EyeLocation, EyeRotation);
 
-				//���ſ�ǹЧ������Ч
+				//播放开枪效果和音效
 				FVector GunFireLocation = Mesh->GetSocketByName("MuzzleLocation")->GetSocketLocation(Mesh);
 				if (FireSound != NULL)
 				{
@@ -228,7 +210,7 @@ void AHitScanWeaponBase::Fire()
 				}
 				if (FireMuzzle != NULL)
 				{
-					if (Mesh&&Mesh->GetSocketByName("MuzzleLocation"))
+					if (Mesh && Mesh->GetSocketByName("MuzzleLocation"))
 					{
 						UGameplayStatics::SpawnEmitterAttached(FireMuzzle, Mesh, TEXT("MuzzleLocation"));
 						//GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("PlayMuzzle"));
@@ -245,26 +227,26 @@ void AHitScanWeaponBase::Fire()
 					}
 				}
 
-				//������
+				//后坐力
 				float RecoilXY = Stream.FRandRange(-CurrentRecoil, CurrentRecoil);
 				FVector RecoilVector(RecoilXY, RecoilXY, CurrentRecoil * 10);
 				FVector TraceEnd = EyeLocation + (ShotDirection * 10000) + RecoilVector;
 
 				FCollisionQueryParams QueryParams;
-				QueryParams.bReturnPhysicalMaterial = true;//������������
+				QueryParams.bReturnPhysicalMaterial = true;//返回物理材质
 				QueryParams.AddIgnoredActor(WeaponOwner);
 				QueryParams.AddIgnoredActor(this);
 				QueryParams.bTraceComplex = true;
 				FHitResult Hit;
-				//��ȡ���λ��
-				APawn *playerPawn = Cast<APawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
+				//获取玩家位置
+				APawn* playerPawn = Cast<APawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 				if (playerPawn)
 				{
 					FVector playerLocation = playerPawn->GetTargetLocation();
 					if (GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, playerLocation, COLLISION_WEAPON, QueryParams))
 					{
 
-						DrawDebugLine(GetWorld(),EyeLocation, Hit.Location,FColor::Red);
+						DrawDebugLine(GetWorld(), EyeLocation, Hit.Location, FColor::Red);
 
 						EPhysicalSurface SurfaceType = UPhysicalMaterial::DetermineSurfaceType(Hit.PhysMaterial.Get());
 						UParticleSystem* SelectedEffect = nullptr;
@@ -340,7 +322,7 @@ void AHitScanWeaponBase::Fire()
 							UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), SelectedEffect, HitPoint, Hit.ImpactNormal.Rotation());
 						}
 
-						//@TODO:����Ŀ�꣬�����˺�
+						//@TODO:击中目标，处理伤害
 						AActor* HitActor = Hit.GetActor();
 						if (SurfaceType == SURFACE_TYPE_HS)
 						{
@@ -352,8 +334,8 @@ void AHitScanWeaponBase::Fire()
 
 						}
 
-						//ע�⣺��ɫ�ĳ����˺�������C++���޷���д����Ҫ����ͼ��ʵ��
-						//�μ�Actor��TakenDamage������
+						//注意：角色的承受伤害函数在C++中无法重写，需要在蓝图中实现
+						//参见Actor类TakenDamage的声明
 					}
 
 				}
@@ -366,9 +348,10 @@ void AHitScanWeaponBase::Fire()
 
 			}
 		}
-			
+
 	}
 }
+
 
 void AHitScanWeaponBase::Tick(float DeltaTime)
 {
