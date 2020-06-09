@@ -9,7 +9,9 @@
 #include "Particles/ParticleSystemComponent.h"
 #include "PhysicalMaterials/PhysicalMaterial.h"
 #include "Engine/SkeletalMesh.h"
+#include <typeinfo>
 #include "Engine/SkeletalMeshSocket.h"
+#include "DrawDebugHelpers.h"
 #include "Kismet/GameplayStatics.h"
 
 AHitScanWeaponBase::AHitScanWeaponBase()
@@ -28,13 +30,15 @@ FRandomStream Stream;
 void AHitScanWeaponBase::Fire()
 {
 	//GEngine->AddOnScreenDebugMessage(1, 1.0f, FColor::Red, TEXT("WeaponFireFunctionTriggered"));
-	APawn* WeaponOwner = Cast<APawn>(GetOwner());//Éú³ÉÎäÆ÷µÄÊ±ºò¼ÇµÃÉèÖÃÓµÓÐÕß
-
-	if (WeaponOwner && !bIsReloading)
+	
+	
+	APawn* WeaponOwner = Cast<APawn>(GetOwner());//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½
+	//ï¿½Ð¶ï¿½ownerï¿½Ç·ï¿½Îªï¿½ï¿½ï¿½
+	if (WeaponOwner->GetClass()->IsChildOf(AminigamefpsCharacter::StaticClass()))
 	{
-		//GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("OwnerDetected"));
-		if (!bNeedAmmo || bNeedAmmo && CurrentAmmoInMag>0)
+		if (WeaponOwner && !bIsReloading)
 		{
+
 			if (bNeedAmmo)CurrentAmmoInMag -= 1;
 			CurrentRecoil += WeaponRecoil;
 			//GEngine->AddOnScreenDebugMessage(2, 1.0f, FColor::Red, TEXT("Fire"));
@@ -43,7 +47,7 @@ void AHitScanWeaponBase::Fire()
 			FRotator EyeRotation;
 			WeaponOwner->GetActorEyesViewPoint(EyeLocation, EyeRotation);
 			
-			//²¥·Å¿ªÇ¹Ð§¹ûºÍÒôÐ§
+			//ï¿½ï¿½ï¿½Å¿ï¿½Ç¹Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
 			FVector GunFireLocation = Mesh->GetSocketByName("MuzzleLocation")->GetSocketLocation(Mesh);
 			if (FireSound != nullptr)
 			{
@@ -51,132 +55,318 @@ void AHitScanWeaponBase::Fire()
 				GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("PlaySound"));
 			}
 			if (FireMuzzle != nullptr)
+			//GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("OwnerDetected"));
+			if (!bNeedAmmo || bNeedAmmo && CurrentAmmoInMag > 0)
+
 			{
-				if (Mesh&&Mesh->GetSocketByName("MuzzleLocation"))
+				if (bNeedAmmo)CurrentAmmoInMag -= 1;
+				CurrentRecoil += WeaponRecoil;
+				//GEngine->AddOnScreenDebugMessage(2, 1.0f, FColor::Red, TEXT("Fire"));
+				USkeletalMeshComponent* Mesh = this->GetMeshComp();
+				FVector EyeLocation;
+				FRotator EyeRotation;
+				WeaponOwner->GetActorEyesViewPoint(EyeLocation, EyeRotation);
+
+				//ï¿½ï¿½ï¿½Å¿ï¿½Ç¹Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+				FVector GunFireLocation = Mesh->GetSocketByName("MuzzleLocation")->GetSocketLocation(Mesh);
+				if (FireSound != NULL)
 				{
-					UGameplayStatics::SpawnEmitterAttached(FireMuzzle, Mesh, TEXT("MuzzleLocation"));
-					GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("PlayMuzzle"));
+					UGameplayStatics::PlaySoundAtLocation(this, FireSound, GunFireLocation, EyeRotation);
+					//GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("PlaySound"));
 				}
-				
+				if (FireMuzzle != NULL)
+				{
+					if (Mesh&&Mesh->GetSocketByName("MuzzleLocation"))
+					{
+						UGameplayStatics::SpawnEmitterAttached(FireMuzzle, Mesh, TEXT("MuzzleLocation"));
+						//GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("PlayMuzzle"));
+					}
+				}
+				FVector ShotDirection = EyeRotation.Vector();
+				if (WeaponOwner)
+				{
+					APlayerController* PC = Cast<APlayerController>(WeaponOwner->GetController());
+					if (PC)
+					{
+						PC->ClientPlayCameraShake(FireCamShake);
+					}
+				}
+
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				float RecoilXY = Stream.FRandRange(-CurrentRecoil, CurrentRecoil);
+				FVector RecoilVector(RecoilXY, RecoilXY, CurrentRecoil * 10);
+				FVector TraceEnd = EyeLocation + (ShotDirection * 10000) + RecoilVector;
+
+				FCollisionQueryParams QueryParams;
+				QueryParams.bReturnPhysicalMaterial = true;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				QueryParams.AddIgnoredActor(WeaponOwner);
+				QueryParams.AddIgnoredActor(this);
+				QueryParams.bTraceComplex = true;
+				FHitResult Hit;
+				if (GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, TraceEnd, COLLISION_WEAPON, QueryParams))
+				{
+					EPhysicalSurface SurfaceType = UPhysicalMaterial::DetermineSurfaceType(Hit.PhysMaterial.Get());
+					UParticleSystem* SelectedEffect = nullptr;
+					switch (SurfaceType)
+					{
+					case SurfaceType_Default:
+						SelectedEffect = DefaultImpactEffect;
+						break;
+					case SURFACE_TYPE_METAL:
+						SelectedEffect = MetalImpactEffect;
+						break;
+					case SURFACE_TYPE_WOOD:
+						SelectedEffect = WoodImpactEffect;
+						break;
+					case SURFACE_TYPE_STONE:
+						SelectedEffect = StoneImpactEffect;
+						break;
+					case SURFACE_TYPE_ELECTRIC:
+						SelectedEffect = ElectricImpactEffect;
+						break;
+					case SURFACE_TYPE_CONCRETE:
+						SelectedEffect = ConcreteImpactEffect;
+						break;
+					case SURFACE_TYPE_FLESH:
+						SelectedEffect = FleshImpactEffect;
+						break;
+					case SURFACE_TYPE_BRICK:
+						SelectedEffect = BrickImpactEffect;
+						break;
+					case SURFACE_TYPE_WATER:
+						SelectedEffect = WaterImpactEffect;
+						break;
+					case SURFACE_TYPE_LEAF:
+						SelectedEffect = LeafImpactEffect;
+						break;
+					case SURFACE_TYPE_GRASS:
+						SelectedEffect = GrassImpactEffect;
+						break;
+					case SURFACE_TYPE_GLASS:
+						SelectedEffect = GlassImpactEffect;
+						break;
+					case SURFACE_TYPE_SNOW:
+						SelectedEffect = SnowImpactEffect;
+						break;
+					case SURFACE_TYPE_ICE:
+						SelectedEffect = IceImpactEffect;
+						break;
+					case SURFACE_TYPE_CLOTH:
+						SelectedEffect = ClothImpactEffect;
+						break;
+					case SurfaceType15:
+						SelectedEffect = DefaultImpactEffect;
+						break;
+					case SURFACE_TYPE_SAND:
+						SelectedEffect = SandImpactEffect;
+						break;
+					case SURFACE_TYPE_PAPER:
+						SelectedEffect = PaperImpactEffect;
+						break;
+					case SURFACE_TYPE_ARMOR:
+						SelectedEffect = ArmorImpactEffect;
+						break;
+					case SURFACE_TYPE_HS:
+						SelectedEffect = HeadShotImpactEffect;
+						break;
+					default:
+						SelectedEffect = DefaultImpactEffect;
+						break;
+					}
+					if (SelectedEffect)
+					{
+						FVector HitPoint = Hit.ImpactPoint;
+						UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), SelectedEffect, HitPoint, Hit.ImpactNormal.Rotation());
+					}
+
+					//@TODO:ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ê£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½
+					AActor* HitActor = Hit.GetActor();
+					if (SurfaceType == SURFACE_TYPE_HS)
+					{
+						UGameplayStatics::ApplyPointDamage(HitActor, WeaponHeadshotDamage, ShotDirection, Hit, WeaponOwner->GetInstigatorController(), this, DamageType);
+					}
+					else
+					{
+						UGameplayStatics::ApplyPointDamage(HitActor, WeaponDamage, ShotDirection, Hit, WeaponOwner->GetInstigatorController(), this, DamageType);
+
+					}
+
+					//×¢ï¿½â£ºï¿½ï¿½É«ï¿½Ä³ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½C++ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½Êµï¿½ï¿½
+					//ï¿½Î¼ï¿½Actorï¿½ï¿½TakenDamageï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				}
 			}
-			FVector ShotDirection = EyeRotation.Vector();
-			if (WeaponOwner)
+			if (bNeedAmmo && CurrentAmmoInMag == 0)
 			{
-				APlayerController* PC = Cast<APlayerController>(WeaponOwner->GetController());
-				if (PC)
-				{
-					PC->ClientPlayCameraShake(FireCamShake);
-				}
-			}
-
-			//ºó×øÁ¦
-			float RecoilXY = Stream.FRandRange(-CurrentRecoil, CurrentRecoil);
-			FVector RecoilVector(RecoilXY,RecoilXY,CurrentRecoil*10);
-			FVector TraceEnd = EyeLocation + (ShotDirection * 10000)+RecoilVector;
-
-			FCollisionQueryParams QueryParams;
-			QueryParams.bReturnPhysicalMaterial = true;//·µ»ØÎïÀí²ÄÖÊ
-			QueryParams.AddIgnoredActor(WeaponOwner);
-			QueryParams.AddIgnoredActor(this);
-			QueryParams.bTraceComplex = true;
-			FHitResult Hit;
-			if (GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, TraceEnd, COLLISION_WEAPON, QueryParams))
-			{
-				//È·¶¨ÎïÀí²ÄÖÊ²¥·ÅÏàÓ¦¼¯ÖÐÐ§¹û
-				EPhysicalSurface SurfaceType = UPhysicalMaterial::DetermineSurfaceType(Hit.PhysMaterial.Get());
-				UParticleSystem* SelectedEffect = nullptr;
-				switch (SurfaceType)
-				{
-				case SurfaceType_Default:
-					SelectedEffect = DefaultImpactEffect;
-					break;
-				case SURFACE_TYPE_METAL:
-					SelectedEffect = MetalImpactEffect;
-					break;
-				case SURFACE_TYPE_WOOD:
-					SelectedEffect = WoodImpactEffect;
-					break;
-				case SURFACE_TYPE_STONE:
-					SelectedEffect = StoneImpactEffect;
-					break;
-				case SURFACE_TYPE_ELECTRIC:
-					SelectedEffect = ElectricImpactEffect;
-					break;
-				case SURFACE_TYPE_CONCRETE:
-					SelectedEffect = ConcreteImpactEffect;
-					break;
-				case SURFACE_TYPE_FLESH:
-					SelectedEffect = FleshImpactEffect;
-					break;
-				case SURFACE_TYPE_BRICK:
-					SelectedEffect = BrickImpactEffect;
-					break;
-				case SURFACE_TYPE_WATER:
-					SelectedEffect = WaterImpactEffect;
-					break;
-				case SURFACE_TYPE_LEAF:
-					SelectedEffect = LeafImpactEffect;
-					break;
-				case SURFACE_TYPE_GRASS:
-					SelectedEffect = GrassImpactEffect;
-					break;
-				case SURFACE_TYPE_GLASS:
-					SelectedEffect = GlassImpactEffect;
-					break;
-				case SURFACE_TYPE_SNOW:
-					SelectedEffect = SnowImpactEffect;
-					break;
-				case SURFACE_TYPE_ICE:
-					SelectedEffect = IceImpactEffect;
-					break;
-				case SURFACE_TYPE_CLOTH:
-					SelectedEffect = ClothImpactEffect;
-					break;
-				case SurfaceType15:
-					SelectedEffect = DefaultImpactEffect;
-					break;
-				case SURFACE_TYPE_SAND:
-					SelectedEffect = SandImpactEffect;
-					break;
-				case SURFACE_TYPE_PAPER:
-					SelectedEffect = PaperImpactEffect;
-					break;
-				case SURFACE_TYPE_ARMOR:
-					SelectedEffect = ArmorImpactEffect;
-					break;
-				case SURFACE_TYPE_HS:
-					SelectedEffect = HeadShotImpactEffect;
-					break;
-				default:
-					SelectedEffect = DefaultImpactEffect;
-					break;
-				}
-				if (SelectedEffect)
-				{
-					FVector HitPoint = Hit.ImpactPoint;
-					UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), SelectedEffect, HitPoint, Hit.ImpactNormal.Rotation());
-				}
-
-				//»÷ÖÐÄ¿±ê£¬´¦ÀíÉËº¦
-				AActor* HitActor = Hit.GetActor();
-				if (SurfaceType == SURFACE_TYPE_HS)
-				{
-					UGameplayStatics::ApplyPointDamage(HitActor, WeaponHeadshotDamage, ShotDirection, Hit, WeaponOwner->GetInstigatorController(), this, DamageType);
-				}
-				else
-				{
-					UGameplayStatics::ApplyPointDamage(HitActor, WeaponDamage, ShotDirection, Hit, WeaponOwner->GetInstigatorController(), this, DamageType);
-
-				}
-				//×¢Òâ£º½ÇÉ«µÄ³ÐÊÜÉËº¦ÐèÒªÔÚÀ¶Í¼ÖÐÊµÏÖ»òÕßÊ¹ÓÃ°ó¶¨º¯Êý
-				//²Î¼ûActorÀàTakenDamageµÄÉùÃ÷
+				if (NoAmmoSound)
+					UGameplayStatics::PlaySoundAtLocation(this, NoAmmoSound, this->GetActorLocation());
 			}
 		}
-		if (bNeedAmmo && CurrentAmmoInMag == 0)
+	}
+	else
+	//ownerÎªAIÊ±
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("AI FIRE!"));
+		if (WeaponOwner && !bIsReloading)
 		{
-			if(NoAmmoSound)
-			UGameplayStatics::PlaySoundAtLocation(this, NoAmmoSound, this->GetActorLocation());
+			//GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("OwnerDetected"));
+			if (CurrentAmmoInMag > 0)
+			{
+				if (bNeedAmmo)CurrentAmmoInMag -= 1;
+				CurrentRecoil += WeaponRecoil;
+				//GEngine->AddOnScreenDebugMessage(2, 1.0f, FColor::Red, TEXT("Fire"));
+				USkeletalMeshComponent* Mesh = this->GetMeshComp();
+				FVector EyeLocation;
+				FRotator EyeRotation;
+				WeaponOwner->GetActorEyesViewPoint(EyeLocation, EyeRotation);
+
+				//ï¿½ï¿½ï¿½Å¿ï¿½Ç¹Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+				FVector GunFireLocation = Mesh->GetSocketByName("MuzzleLocation")->GetSocketLocation(Mesh);
+				if (FireSound != NULL)
+				{
+					UGameplayStatics::PlaySoundAtLocation(this, FireSound, GunFireLocation, EyeRotation);
+					//GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("PlaySound"));
+				}
+				if (FireMuzzle != NULL)
+				{
+					if (Mesh&&Mesh->GetSocketByName("MuzzleLocation"))
+					{
+						UGameplayStatics::SpawnEmitterAttached(FireMuzzle, Mesh, TEXT("MuzzleLocation"));
+						//GEngine->AddOnScreenDebugMessage(0, 1.0f, FColor::Red, TEXT("PlayMuzzle"));
+					}
+
+				}
+				FVector ShotDirection = EyeRotation.Vector();
+				if (WeaponOwner)
+				{
+					APlayerController* PC = Cast<APlayerController>(WeaponOwner->GetController());
+					if (PC)
+					{
+						PC->ClientPlayCameraShake(FireCamShake);
+					}
+				}
+
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				float RecoilXY = Stream.FRandRange(-CurrentRecoil, CurrentRecoil);
+				FVector RecoilVector(RecoilXY, RecoilXY, CurrentRecoil * 10);
+				FVector TraceEnd = EyeLocation + (ShotDirection * 10000) + RecoilVector;
+
+				FCollisionQueryParams QueryParams;
+				QueryParams.bReturnPhysicalMaterial = true;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				QueryParams.AddIgnoredActor(WeaponOwner);
+				QueryParams.AddIgnoredActor(this);
+				QueryParams.bTraceComplex = true;
+				FHitResult Hit;
+				//ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+				APawn *playerPawn = Cast<APawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
+				if (playerPawn)
+				{
+					FVector playerLocation = playerPawn->GetTargetLocation();
+					if (GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, playerLocation, COLLISION_WEAPON, QueryParams))
+					{
+
+						DrawDebugLine(GetWorld(),EyeLocation, Hit.Location,FColor::Red);
+
+						EPhysicalSurface SurfaceType = UPhysicalMaterial::DetermineSurfaceType(Hit.PhysMaterial.Get());
+						UParticleSystem* SelectedEffect = nullptr;
+						switch (SurfaceType)
+						{
+						case SurfaceType_Default:
+							SelectedEffect = DefaultImpactEffect;
+							break;
+						case SURFACE_TYPE_METAL:
+							SelectedEffect = MetalImpactEffect;
+							break;
+						case SURFACE_TYPE_WOOD:
+							SelectedEffect = WoodImpactEffect;
+							break;
+						case SURFACE_TYPE_STONE:
+							SelectedEffect = StoneImpactEffect;
+							break;
+						case SURFACE_TYPE_ELECTRIC:
+							SelectedEffect = ElectricImpactEffect;
+							break;
+						case SURFACE_TYPE_CONCRETE:
+							SelectedEffect = ConcreteImpactEffect;
+							break;
+						case SURFACE_TYPE_FLESH:
+							SelectedEffect = FleshImpactEffect;
+							break;
+						case SURFACE_TYPE_BRICK:
+							SelectedEffect = BrickImpactEffect;
+							break;
+						case SURFACE_TYPE_WATER:
+							SelectedEffect = WaterImpactEffect;
+							break;
+						case SURFACE_TYPE_LEAF:
+							SelectedEffect = LeafImpactEffect;
+							break;
+						case SURFACE_TYPE_GRASS:
+							SelectedEffect = GrassImpactEffect;
+							break;
+						case SURFACE_TYPE_GLASS:
+							SelectedEffect = GlassImpactEffect;
+							break;
+						case SURFACE_TYPE_SNOW:
+							SelectedEffect = SnowImpactEffect;
+							break;
+						case SURFACE_TYPE_ICE:
+							SelectedEffect = IceImpactEffect;
+							break;
+						case SURFACE_TYPE_CLOTH:
+							SelectedEffect = ClothImpactEffect;
+							break;
+						case SurfaceType15:
+							SelectedEffect = DefaultImpactEffect;
+							break;
+						case SURFACE_TYPE_SAND:
+							SelectedEffect = SandImpactEffect;
+							break;
+						case SURFACE_TYPE_PAPER:
+							SelectedEffect = PaperImpactEffect;
+							break;
+						case SURFACE_TYPE_ARMOR:
+							SelectedEffect = ArmorImpactEffect;
+							break;
+						case SURFACE_TYPE_HS:
+							SelectedEffect = HeadShotImpactEffect;
+							break;
+						default:
+							SelectedEffect = DefaultImpactEffect;
+							break;
+						}
+						if (SelectedEffect)
+						{
+							FVector HitPoint = Hit.ImpactPoint;
+							UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), SelectedEffect, HitPoint, Hit.ImpactNormal.Rotation());
+						}
+
+						//@TODO:ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ê£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½
+						AActor* HitActor = Hit.GetActor();
+						if (SurfaceType == SURFACE_TYPE_HS)
+						{
+							//UGameplayStatics::ApplyPointDamage(HitActor, WeaponHeadshotDamage, ShotDirection, Hit, WeaponOwner->GetInstigatorController(), this, DamageType);
+						}
+						else
+						{
+							//UGameplayStatics::ApplyPointDamage(HitActor, WeaponDamage, ShotDirection, Hit, WeaponOwner->GetInstigatorController(), this, DamageType);
+
+						}
+
+						//×¢ï¿½â£ºï¿½ï¿½É«ï¿½Ä³ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½C++ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½Êµï¿½ï¿½
+						//ï¿½Î¼ï¿½Actorï¿½ï¿½TakenDamageï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+					}
+
+				}
+
+			}
+			if (bNeedAmmo && CurrentAmmoInMag == 0)
+			{
+				if (NoAmmoSound)
+					UGameplayStatics::PlaySoundAtLocation(this, NoAmmoSound, this->GetActorLocation());
+
+			}
 		}
+			
 	}
 }
 
@@ -222,6 +412,8 @@ void AHitScanWeaponBase::EndReloading()
 void AHitScanWeaponBase::BeginPlay()
 {
 	Super::BeginPlay();
+
 	
 }
+
 

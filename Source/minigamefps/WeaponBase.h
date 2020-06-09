@@ -44,7 +44,7 @@ protected:
 	virtual void Tick(float DeltaTime) override;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
 		int MaxAmmoInMag;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")//»√AIªªµØ“™…Ë÷√Œ™BlueprintReadWrite
 		int CurrentAmmoInMag;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
 		int MaxReservedAmmo;
