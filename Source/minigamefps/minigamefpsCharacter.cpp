@@ -56,6 +56,7 @@ AminigamefpsCharacter::AminigamefpsCharacter()
 
 void AminigamefpsCharacter::SwitchPosition()
 {
+	
 	if (!(bIsCrouched))
 	{
 		this->BeginCrouch();
@@ -64,6 +65,7 @@ void AminigamefpsCharacter::SwitchPosition()
 	{
 		this->EndCrouch();
 	}
+	bIsCrouched = !bIsCrouched;
 }
 
 void AminigamefpsCharacter::BeginCrouch()
