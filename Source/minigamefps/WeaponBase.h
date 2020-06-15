@@ -36,6 +36,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
 		float WeaponRecoil;//ºó×øÁ¦
 	float CurrentRecoil;
+	virtual int GetCurrentAmmoInMag();
+	virtual void SetCurrentAmmoInMag();
 /*	UFUNCTION()*/
 /*	void Overlap(AActor* OverlappedActor, AActor* OtherActor);*/
 protected:

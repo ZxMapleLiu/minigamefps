@@ -25,6 +25,8 @@ protected:
 		void OnHealthChanged(UGameplayPropertyComp* GameplayComp, float Health, float Armor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
 	UPROPERTY(BlueprintReadOnly, Category = Gameplay)
 		bool bDied;
+	UPROPERTY(BlueprintReadOnly, Category = Gameplay)
+		bool bIsReloading;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Animation)
 		UAnimationAsset* HitReact;//»÷ÖÐ¶¯»­
 public:	
@@ -39,4 +41,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 		AWeaponBase* WeaponSlot;
 	FORCEINLINE class UGameplayPropertyComp* GetGameplayPropertyComp() const { return GameplayPropertyComp; }
+	UFUNCTION(BlueprintCallable, Category = "Weapon")
+		void EndReload();
+	UFUNCTION(BlueprintCallable, Category = "Weapon")
+		void IfReload();
+	UFUNCTION(BlueprintCallable, Category = "Weapon")
+		void SetCurrentAmmo();
 };

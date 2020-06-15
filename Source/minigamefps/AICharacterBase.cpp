@@ -58,3 +58,42 @@ void AAICharacterBase::OnHealthChanged(UGameplayPropertyComp* GameplayComp, floa
 		SetLifeSpan(3.f);//TODO：根据死亡动画长度设置时间
 	}
 }
+
+void AAICharacterBase::IfReload()
+{
+	if (WeaponSlot)
+	{
+		int TempAmmo = WeaponSlot->GetCurrentAmmoInMag();
+		if (TempAmmo <= 0)
+		{
+			bIsReloading = true;
+			return;
+		}
+		else
+		{
+			bIsReloading = false;
+			return;
+		}
+	}
+	else
+	{
+		bIsReloading = false;
+	}
+
+}
+
+void AAICharacterBase::EndReload()
+{
+	if (WeaponSlot)
+	{
+		bIsReloading = false;
+	}
+}
+
+void AAICharacterBase::SetCurrentAmmo()
+{
+	if (WeaponSlot)
+	{
+		WeaponSlot->SetCurrentAmmoInMag();
+	}
+}

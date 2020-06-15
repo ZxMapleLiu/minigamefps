@@ -86,6 +86,16 @@ void AWeaponBase::EndReloading()
 
 }
 
+int AWeaponBase::GetCurrentAmmoInMag()
+{
+	return CurrentAmmoInMag;
+}
+
+void AWeaponBase::SetCurrentAmmoInMag()
+{
+	CurrentAmmoInMag = MaxAmmoInMag;
+}
+
 // void AWeaponBase::Overlap(AActor* OverlappedActor, AActor* OtherActor)
 // {
 // 	if (this->GetOwner() == nullptr)
