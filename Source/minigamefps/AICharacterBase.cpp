@@ -14,6 +14,7 @@ AAICharacterBase::AAICharacterBase()
 	PrimaryActorTick.bCanEverTick = true;
 	GameplayPropertyComp = CreateDefaultSubobject<UGameplayPropertyComp>(TEXT("GameplayPropertyComp"));
 	bDied = false;
+	bIsReloading = false;
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 }
 
@@ -43,6 +44,7 @@ void AAICharacterBase::OnHealthChanged(UGameplayPropertyComp* GameplayComp, floa
 {
 	FString s = FString::SanitizeFloat(Damage);
 	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, s);
+
 	if (Health <= 0.0f && !bDied)
 	{
 		bDied = true;
@@ -69,15 +71,6 @@ void AAICharacterBase::IfReload()
 			bIsReloading = true;
 			return;
 		}
-		else
-		{
-			bIsReloading = false;
-			return;
-		}
-	}
-	else
-	{
-		bIsReloading = false;
 	}
 
 }
