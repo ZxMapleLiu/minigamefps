@@ -27,6 +27,10 @@ protected:
 		bool bDied;
 	UPROPERTY(BlueprintReadOnly, Category = Gameplay)
 		bool bIsReloading;
+	UPROPERTY(BlueprintReadOnly, Category = Gameplay)
+		bool bIsAttacked;
+	UPROPERTY(BlueprintReadWrite, Category = Gameplay)
+		bool bFlag;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Animation)
 		UAnimationAsset* HitReact;//»÷ÖÐ¶¯»­
 public:	
