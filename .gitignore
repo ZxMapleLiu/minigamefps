@@ -320,3 +320,960 @@ Content/StarterContent/Particles/P_Sparks.uasset
 Content/StarterContent/Textures/T_Smoke_SubUV.uasset
 Content/StarterContent/Textures/T_Smoke_Tiled_D.uasset
 Content/StarterContent/Textures/T_Spark_Core.uasset
+Content/DeadHillsLandscape/Materials/Sky/M_Sky.uasset
+Content/DeadHillsLandscape/Materials/Sky/MI_Sky.uasset
+Content/DeadHillsLandscape/Meshes/SM_Sky.uasset
+Content/DeadHillsLandscape/Textures/Sky/T_Sky_01_A.uasset
+Content/designbyheng/Blueprints/BP_MBuilding01.uasset
+Content/designbyheng/Blueprints/BP_MBuilding03.uasset
+Content/designbyheng/Blueprints/BP_MBuilding04.uasset
+Content/designbyheng/Blueprints/BP_MCar01.uasset
+Content/designbyheng/Blueprints/BP_MCar02.uasset
+Content/designbyheng/Blueprints/BP_MCar03.uasset
+Content/designbyheng/Blueprints/BP_MMetroEntrance.uasset
+Content/designbyheng/Blueprints/Building_Test_Blueprint.uasset
+Content/designbyheng/Decals/M_SteampunkDecal02.uasset
+Content/designbyheng/Decals/M_SteampunkDecal03.uasset
+Content/designbyheng/Decals/M_SteampunkDecal04.uasset
+Content/designbyheng/Decals/M_SteampunkDecal05.uasset
+Content/designbyheng/Decals/M_SteampunkDecal07.uasset
+Content/designbyheng/Decals/M_SteampunkDecal08.uasset
+Content/designbyheng/Decals/M_SteampunkDecal09.uasset
+Content/designbyheng/Decals/M_SteampunkDecal10.uasset
+Content/designbyheng/Decals/M_SteampunkDecal18.uasset
+Content/designbyheng/Decals/M_SteampunkDecal23.uasset
+Content/designbyheng/Decals/M_SteampunkDecal32.uasset
+Content/designbyheng/Decals/MI_SteampunkDecal08.uasset
+Content/designbyheng/Decals/T_DecalC02.uasset
+Content/designbyheng/Decals/T_DecalC03.uasset
+Content/designbyheng/Decals/T_DecalC04.uasset
+Content/designbyheng/Decals/T_DecalC05.uasset
+Content/designbyheng/Decals/T_DecalDirtA_06.uasset
+Content/designbyheng/Decals/T_DecalDirtC_06.uasset
+Content/designbyheng/Decals/T_DecalGraffitiA_01.uasset
+Content/designbyheng/Decals/T_DecalN_01.uasset
+Content/designbyheng/Decals/T_DecalOP02.uasset
+Content/designbyheng/Decals/T_DecalOP03.uasset
+Content/designbyheng/Decals/T_DecalOP04.uasset
+Content/designbyheng/Decals/T_DecalOP05.uasset
+Content/designbyheng/Decals/T_DecalSignA02.uasset
+Content/designbyheng/Decals/T_DecalSignC02.uasset
+Content/designbyheng/Decals/T_DecalWallA_06.uasset
+Content/designbyheng/Decals/T_DecalWallC_06.uasset
+Content/designbyheng/Decals/T_DirtDecal02.uasset
+Content/designbyheng/Decals/T_DirtDecal03.uasset
+Content/designbyheng/Decals/T_DirtDecal04.uasset
+Content/designbyheng/Decals/T_DirtDecalOP02.uasset
+Content/designbyheng/Decals/T_DirtDecalOP03.uasset
+Content/designbyheng/Decals/T_DirtDecalOP04.uasset
+Content/designbyheng/LUTs/LUT_Metro.uasset
+Content/designbyheng/LUTs/LUT_Outside.uasset
+Content/designbyheng/Maps/ModernCityMap01.umap
+Content/designbyheng/Maps/ModernCityMap01_BuiltData.uasset
+Content/designbyheng/Materials/M_airConditioner01.uasset
+Content/designbyheng/Materials/M_airConditioner02.uasset
+Content/designbyheng/Materials/M_Bankomat01.uasset
+Content/designbyheng/Materials/M_Barrels01.uasset
+Content/designbyheng/Materials/M_BarricadeMat01.uasset
+Content/designbyheng/Materials/M_Barriers01.uasset
+Content/designbyheng/Materials/M_Barriers02.uasset
+Content/designbyheng/Materials/M_Barriers03.uasset
+Content/designbyheng/Materials/M_Bush1.uasset
+Content/designbyheng/Materials/M_Bush2.uasset
+Content/designbyheng/Materials/M_CafeTable01.uasset
+Content/designbyheng/Materials/M_CT01_01.uasset
+Content/designbyheng/Materials/M_CT01_02.uasset
+Content/designbyheng/Materials/M_CT01_03.uasset
+Content/designbyheng/Materials/M_CT01_04.uasset
+Content/designbyheng/Materials/M_CT01_05.uasset
+Content/designbyheng/Materials/M_CT01_06.uasset
+Content/designbyheng/Materials/M_Dusbins02.uasset
+Content/designbyheng/Materials/M_Dustbins01.uasset
+Content/designbyheng/Materials/M_FastFood.uasset
+Content/designbyheng/Materials/M_Glass.uasset
+Content/designbyheng/Materials/M_Glass01.uasset
+Content/designbyheng/Materials/M_Grass.uasset
+Content/designbyheng/Materials/M_Ground_Floor_Door_Glass_Mat.uasset
+Content/designbyheng/Materials/M_Ground_Floor_Door_Mat.uasset
+Content/designbyheng/Materials/M_Ground_Floor_Entrance_Glass_Mat.uasset
+Content/designbyheng/Materials/M_Ground_Floor_Entrance_Mat.uasset
+Content/designbyheng/Materials/M_GroundModule01.uasset
+Content/designbyheng/Materials/M_GroundModule01_02.uasset
+Content/designbyheng/Materials/M_GroundModule01_03.uasset
+Content/designbyheng/Materials/M_GroundModule01_04.uasset
+Content/designbyheng/Materials/M_GroundModule02.uasset
+Content/designbyheng/Materials/M_GroundModule03.uasset
+Content/designbyheng/Materials/M_Lamps01.uasset
+Content/designbyheng/Materials/M_Light.uasset
+Content/designbyheng/Materials/M_MBoothSeat.uasset
+Content/designbyheng/Materials/M_MBuilding01_Facades.uasset
+Content/designbyheng/Materials/M_MBuilding01_FirstFloor_A.uasset
+Content/designbyheng/Materials/M_MBuilding01_FirstFloor_B.uasset
+Content/designbyheng/Materials/M_MBuilding01_FirstFloor_C.uasset
+Content/designbyheng/Materials/M_MBuilding02_Facades_D.uasset
+Content/designbyheng/Materials/M_MBuilding02_FirstFloor_D.uasset
+Content/designbyheng/Materials/M_MBuilding02_FirstFloor_G.uasset
+Content/designbyheng/Materials/M_MBuilding02_Ledges.uasset
+Content/designbyheng/Materials/M_MBuilding03_Facades.uasset
+Content/designbyheng/Materials/M_MBuilding03_FirstFloor.uasset
+Content/designbyheng/Materials/M_MBuilding03_RoofLedge.uasset
+Content/designbyheng/Materials/M_MBuilding04_Ceiling.uasset
+Content/designbyheng/Materials/M_MBuilding04_ColumnStairs.uasset
+Content/designbyheng/Materials/M_MBuilding04_Facades_A.uasset
+Content/designbyheng/Materials/M_MBuilding04_Facades_B.uasset
+Content/designbyheng/Materials/M_MBuilding04_Facades_Inner.uasset
+Content/designbyheng/Materials/M_MBuilding04_FirstFloor_A.uasset
+Content/designbyheng/Materials/M_MBuilding04_FirstFloor_A_Inner.uasset
+Content/designbyheng/Materials/M_MBuilding04_FirstFloor_B.uasset
+Content/designbyheng/Materials/M_MBuilding04_FirstFloor_B_Inner.uasset
+Content/designbyheng/Materials/M_MBuilding04_FirstFloor_C.uasset
+Content/designbyheng/Materials/M_MBuilding04_FirstFloor_C_Inner.uasset
+Content/designbyheng/Materials/M_MBuilding04_Floor.uasset
+Content/designbyheng/Materials/M_MBuilding04_Frame_Picture.uasset
+Content/designbyheng/Materials/M_MBuilding04_Furnitures.uasset
+Content/designbyheng/Materials/M_MBuilding04_Glass.uasset
+Content/designbyheng/Materials/M_MBuilding04_InfoDesk.uasset
+Content/designbyheng/Materials/M_MBuilding04_InnerFacades.uasset
+Content/designbyheng/Materials/M_MBuilding04_InnerFFDoor.uasset
+Content/designbyheng/Materials/M_MBuilding04_InnerFFLift.uasset
+Content/designbyheng/Materials/M_MBuilding04_InnerFFWall.uasset
+Content/designbyheng/Materials/M_MBuilding04_InnerFFWindow_A.uasset
+Content/designbyheng/Materials/M_MBuilding04_InnerFFWindow_B.uasset
+Content/designbyheng/Materials/M_MBuilding04_MainFloor.uasset
+Content/designbyheng/Materials/M_MBuilding04_Roof.uasset
+Content/designbyheng/Materials/M_MBuilding05_SkyscraperLedge.uasset
+Content/designbyheng/Materials/M_MBuilding05_SkyscraperWindows.uasset
+Content/designbyheng/Materials/M_MCar01_Exterior.uasset
+Content/designbyheng/Materials/M_MCar01_Glass.uasset
+Content/designbyheng/Materials/M_MCar01_Interior.uasset
+Content/designbyheng/Materials/M_MCar01_Lights.uasset
+Content/designbyheng/Materials/M_MCGlass01.uasset
+Content/designbyheng/Materials/M_MCheckoutCounter.uasset
+Content/designbyheng/Materials/M_MCProps01.uasset
+Content/designbyheng/Materials/M_MCProps02.uasset
+Content/designbyheng/Materials/M_MFountainDrinks.uasset
+Content/designbyheng/Materials/M_MFurniture_B.uasset
+Content/designbyheng/Materials/M_MLight.uasset
+Content/designbyheng/Materials/M_MMetro_Ceiling.uasset
+Content/designbyheng/Materials/M_MMetro_Doors.uasset
+Content/designbyheng/Materials/M_MMetro_EntranceRoof.uasset
+Content/designbyheng/Materials/M_MMetro_EntranceSide.uasset
+Content/designbyheng/Materials/M_MMetro_EntranceSupport.uasset
+Content/designbyheng/Materials/M_MMetro_Escalator.uasset
+Content/designbyheng/Materials/M_MMetro_Floor.uasset
+Content/designbyheng/Materials/M_MMetro_Glass.uasset
+Content/designbyheng/Materials/M_MMetro_Props.uasset
+Content/designbyheng/Materials/M_MMetro_Signs.uasset
+Content/designbyheng/Materials/M_MMetro_Stairs_A.uasset
+Content/designbyheng/Materials/M_MMetro_Stairs_B.uasset
+Content/designbyheng/Materials/M_MMetro_StairsTrim_A.uasset
+Content/designbyheng/Materials/M_MMetro_Wall.uasset
+Content/designbyheng/Materials/M_Obelix_Mat01.uasset
+Content/designbyheng/Materials/M_Palm_Bark.uasset
+Content/designbyheng/Materials/M_PhoneBoxMat01.uasset
+Content/designbyheng/Materials/M_PhoneBoxMat02.uasset
+Content/designbyheng/Materials/M_Roof_Mat.uasset
+Content/designbyheng/Materials/M_Shopsigns01.uasset
+Content/designbyheng/Materials/M_Shopsigns02.uasset
+Content/designbyheng/Materials/M_Single_Window.uasset
+Content/designbyheng/Materials/M_SPGarbages_Mat01.uasset
+Content/designbyheng/Materials/M_StreetBenchs01.uasset
+Content/designbyheng/Materials/M_StreetWallMat01.uasset
+Content/designbyheng/Materials/M_Tree1_Bark.uasset
+Content/designbyheng/Materials/M_Tree1_Leaf.uasset
+Content/designbyheng/Materials/M_Tree2_Bark.uasset
+Content/designbyheng/Materials/M_Tree2_Leaf.uasset
+Content/designbyheng/Materials/M_Tree3_Leaf.uasset
+Content/designbyheng/Materials/M_TurnstileGlass.uasset
+Content/designbyheng/Materials/M_UnderTreesMat01.uasset
+Content/designbyheng/Materials/MF_NormalStrength.uasset
+Content/designbyheng/Materials/MF_UVCoordinate.uasset
+Content/designbyheng/Materials/MI_Bankomat01_Inst.uasset
+Content/designbyheng/Materials/MI_Bankomat01_Inst1.uasset
+Content/designbyheng/Materials/MI_CT01_01_Inst.uasset
+Content/designbyheng/Materials/MI_CT01_02_Inst.uasset
+Content/designbyheng/Materials/MI_CT01_03_Inst.uasset
+Content/designbyheng/Materials/MI_CT01_04_Inst.uasset
+Content/designbyheng/Materials/MI_CT01_05_Inst.uasset
+Content/designbyheng/Materials/MI_CT01_06_Inst.uasset
+Content/designbyheng/Materials/MI_Grass_Flowers.uasset
+Content/designbyheng/Materials/MI_Grass_Flowers1.uasset
+Content/designbyheng/Materials/MI_Grass_Flowers2.uasset
+Content/designbyheng/Materials/MI_MBuilding04_Ceiling.uasset
+Content/designbyheng/Materials/MI_MBuilding04_FirstFloor_C_Inner.uasset
+Content/designbyheng/Materials/MI_MBuilding04_Floor.uasset
+Content/designbyheng/Materials/MI_MBuilding04_Frame_Picture.uasset
+Content/designbyheng/Materials/MI_MBuilding04_Frame_Picture_2.uasset
+Content/designbyheng/Materials/MI_MBuilding04_Frame_Picture_3.uasset
+Content/designbyheng/Materials/MI_MBuilding04_Glass.uasset
+Content/designbyheng/Materials/MI_MBuilding04_MainFloor.uasset
+Content/designbyheng/Materials/MI_MBuilding04_Roof.uasset
+Content/designbyheng/Materials/MI_MBuilding05_SkyscraperWindows.uasset
+Content/designbyheng/Materials/MI_MCar01_Exterior_Inst.uasset
+Content/designbyheng/Materials/MI_MCar01_Exterior_Inst2.uasset
+Content/designbyheng/Materials/MI_MCar01_Glass_Inst.uasset
+Content/designbyheng/Materials/MI_MCar01_Interior_Inst.uasset
+Content/designbyheng/Materials/MI_MCar01_Lights_Inst.uasset
+Content/designbyheng/Materials/MI_MCGlass01_Instance.uasset
+Content/designbyheng/Materials/MI_MCGlass01_Instance02.uasset
+Content/designbyheng/Materials/MI_MCProps01_Inst.uasset
+Content/designbyheng/Materials/MI_MLight.uasset
+Content/designbyheng/Materials/MI_MLight1.uasset
+Content/designbyheng/Materials/MI_MMetro_Signs.uasset
+Content/designbyheng/Materials/MI_Palm_Bark.uasset
+Content/designbyheng/Materials/MI_Tree1_Bark.uasset
+Content/designbyheng/Materials/MI_Tree1_Leaf.uasset
+Content/designbyheng/Materials/MI_Tree2_Bark.uasset
+Content/designbyheng/Materials/MI_Tree2_Leaf.uasset
+Content/designbyheng/Materials/MI_Tree3_Leaf.uasset
+Content/designbyheng/Materials/MI_TurnstileGlass.uasset
+Content/designbyheng/Materials/MII__Glass1.uasset
+Content/designbyheng/Meshes/PA_ConstructionTruck01FullyRigged_PhysicsAsset.uasset
+Content/designbyheng/Meshes/PA_MCarS01_Body_PhysicsAsset.uasset
+Content/designbyheng/Meshes/SK_ConstructionTruck01FullyRigged.uasset
+Content/designbyheng/Meshes/SK_ConstructionTruck01FullyRigged_Skeleton.uasset
+Content/designbyheng/Meshes/SK_MCarS01_Body.uasset
+Content/designbyheng/Meshes/SK_MCarS01_Body_Skeleton.uasset
+Content/designbyheng/Meshes/SM_airConditioner01_Animated.uasset
+Content/designbyheng/Meshes/SM_airConditioner01_Animated_Anim.uasset
+Content/designbyheng/Meshes/SM_airConditioner01_Animated_PhysicsAsset.uasset
+Content/designbyheng/Meshes/SM_airConditioner01_Animated_Skeleton.uasset
+Content/designbyheng/Meshes/SM_airConditioner02.uasset
+Content/designbyheng/Meshes/SM_airConditioner03_Animated.uasset
+Content/designbyheng/Meshes/SM_airConditioner03_Animated_Anim.uasset
+Content/designbyheng/Meshes/SM_airConditioner03_Animated_PhysicsAsset.uasset
+Content/designbyheng/Meshes/SM_airConditioner03_Animated_Skeleton.uasset
+Content/designbyheng/Meshes/SM_airConditioner04.uasset
+Content/designbyheng/Meshes/SM_Bankomat01.uasset
+Content/designbyheng/Meshes/SM_Barricade01.uasset
+Content/designbyheng/Meshes/SM_Barrier01.uasset
+Content/designbyheng/Meshes/SM_Barrier02.uasset
+Content/designbyheng/Meshes/SM_Barrier03.uasset
+Content/designbyheng/Meshes/SM_Barrier04.uasset
+Content/designbyheng/Meshes/SM_Barrier05.uasset
+Content/designbyheng/Meshes/SM_Barrier06.uasset
+Content/designbyheng/Meshes/SM_Barrier08.uasset
+Content/designbyheng/Meshes/SM_Barrier09.uasset
+Content/designbyheng/Meshes/SM_Barrier11.uasset
+Content/designbyheng/Meshes/SM_Barrier12.uasset
+Content/designbyheng/Meshes/SM_Barrier13.uasset
+Content/designbyheng/Meshes/SM_Barrier14.uasset
+Content/designbyheng/Meshes/SM_Barrier15.uasset
+Content/designbyheng/Meshes/SM_Barrier16.uasset
+Content/designbyheng/Meshes/SM_Barrier17.uasset
+Content/designbyheng/Meshes/SM_Barrier18.uasset
+Content/designbyheng/Meshes/SM_Bench01.uasset
+Content/designbyheng/Meshes/SM_Bench02.uasset
+Content/designbyheng/Meshes/SM_Bench03.uasset
+Content/designbyheng/Meshes/SM_Bin_001.uasset
+Content/designbyheng/Meshes/SM_Bin_002.uasset
+Content/designbyheng/Meshes/SM_Bin_003.uasset
+Content/designbyheng/Meshes/SM_Bin_003_01.uasset
+Content/designbyheng/Meshes/SM_Bin_003_02.uasset
+Content/designbyheng/Meshes/SM_Bin_004.uasset
+Content/designbyheng/Meshes/SM_Bin_004_01.uasset
+Content/designbyheng/Meshes/SM_Bin_006.uasset
+Content/designbyheng/Meshes/SM_Bush_1.uasset
+Content/designbyheng/Meshes/SM_Bush_2.uasset
+Content/designbyheng/Meshes/SM_CafeTable01.uasset
+Content/designbyheng/Meshes/SM_CafeTableMesh02.uasset
+Content/designbyheng/Meshes/SM_CafeTableMesh03.uasset
+Content/designbyheng/Meshes/SM_cityBarrels_01.uasset
+Content/designbyheng/Meshes/SM_cityBarrels_02.uasset
+Content/designbyheng/Meshes/SM_cityBarrels_03.uasset
+Content/designbyheng/Meshes/SM_cityBarrels_04.uasset
+Content/designbyheng/Meshes/SM_cityBarrels_05.uasset
+Content/designbyheng/Meshes/SM_ConstructionTruck01_Body.uasset
+Content/designbyheng/Meshes/SM_DrinkCup.uasset
+Content/designbyheng/Meshes/SM_Garbages_Mesh04.uasset
+Content/designbyheng/Meshes/SM_Garbages_Mesh05.uasset
+Content/designbyheng/Meshes/SM_Garbages_Mesh06.uasset
+Content/designbyheng/Meshes/SM_Garbages_Mesh07.uasset
+Content/designbyheng/Meshes/SM_Garbages_Mesh08.uasset
+Content/designbyheng/Meshes/SM_Garbages_Mesh09.uasset
+Content/designbyheng/Meshes/SM_Garbages_Mesh10.uasset
+Content/designbyheng/Meshes/SM_Garbages_Mesh11.uasset
+Content/designbyheng/Meshes/SM_Garbages_Mesh12.uasset
+Content/designbyheng/Meshes/SM_Grass.uasset
+Content/designbyheng/Meshes/SM_Grass_Flowers.uasset
+Content/designbyheng/Meshes/SM_Grass_Flowers1.uasset
+Content/designbyheng/Meshes/SM_Grass_Flowers2.uasset
+Content/designbyheng/Meshes/SM_Ground_Floor_Base.uasset
+Content/designbyheng/Meshes/SM_Ground_Floor_Door_L.uasset
+Content/designbyheng/Meshes/SM_Ground_Floor_Entrance.uasset
+Content/designbyheng/Meshes/SM_Ground_Floor_L.uasset
+Content/designbyheng/Meshes/SM_Ground_Floor_R.uasset
+Content/designbyheng/Meshes/SM_GroundModule01.uasset
+Content/designbyheng/Meshes/SM_GroundModule02.uasset
+Content/designbyheng/Meshes/SM_GroundModule03.uasset
+Content/designbyheng/Meshes/SM_Lamp_002.uasset
+Content/designbyheng/Meshes/SM_Lamp_005.uasset
+Content/designbyheng/Meshes/SM_Lamp_006.uasset
+Content/designbyheng/Meshes/SM_MAwning.uasset
+Content/designbyheng/Meshes/SM_MBoothSeat.uasset
+Content/designbyheng/Meshes/SM_MBuilding01_Corner_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding01_Corner_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding01_Corner_C.uasset
+Content/designbyheng/Meshes/SM_MBuilding01_Corner_D.uasset
+Content/designbyheng/Meshes/SM_MBuilding01_Facade_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding01_Facade_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding01_Facade_C.uasset
+Content/designbyheng/Meshes/SM_MBuilding01_Facade_D.uasset
+Content/designbyheng/Meshes/SM_MBuilding01_FirstFloor_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding01_FirstFloor_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding01_FirstFloor_C.uasset
+Content/designbyheng/Meshes/SM_MBuilding01_FirstFloor_D.uasset
+Content/designbyheng/Meshes/SM_MBuilding01_FirstFloor_E.uasset
+Content/designbyheng/Meshes/SM_MBuilding01_Roof.uasset
+Content/designbyheng/Meshes/SM_MBuilding01_Rooftop.uasset
+Content/designbyheng/Meshes/SM_MBuilding01_Wall.uasset
+Content/designbyheng/Meshes/SM_MBuilding02_Column_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding02_Railing.uasset
+Content/designbyheng/Meshes/SM_MBuilding02_RoofLedge_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding02_RoofLedge_E.uasset
+Content/designbyheng/Meshes/SM_MBuilding03_Facade_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding03_Facade_AB_Corner.uasset
+Content/designbyheng/Meshes/SM_MBuilding03_Facade_B_Bottom.uasset
+Content/designbyheng/Meshes/SM_MBuilding03_Facade_B_Corner.uasset
+Content/designbyheng/Meshes/SM_MBuilding03_Facade_B_Middle.uasset
+Content/designbyheng/Meshes/SM_MBuilding03_Facade_B_Upper.uasset
+Content/designbyheng/Meshes/SM_MBuilding03_Facade_C.uasset
+Content/designbyheng/Meshes/SM_MBuilding03_FirstFloor_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding03_FirstFloor_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding03_FirstFloor_Corner.uasset
+Content/designbyheng/Meshes/SM_MBuilding03_Roof_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding03_Roof_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding03_Roof_C.uasset
+Content/designbyheng/Meshes/SM_MBuilding03_RoofLedge.uasset
+Content/designbyheng/Meshes/SM_MBuilding03_RoofLedge_Corner.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_Ceiling.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_Chandelier.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_Facade_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_Facade_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_Facade_Corner.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_FirstFloor_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_FirstFloor_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_FirstFloor_C.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_FirstFloor_Corner.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InfoDesk_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InfoDesk_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerColumn_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerColumn_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerCorner_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerCorner_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerCorner_C.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerDoor_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerDoor_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerDoorWall_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerDoorWall_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerFFCorner_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerFFCorner_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerFFCorner_C.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerFFDoorWall_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerFFDoorWall_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerFFLift.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerFFWall.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerFFWindow_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerFFWindow_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerLift.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerWall.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_InnerWindow.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_MainDoor_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_MainDoor_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_MainFloor.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_StairRailing_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_StairRailing_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_Stairs.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_TopFloor_A.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_TopFloor_B.uasset
+Content/designbyheng/Meshes/SM_MBuilding04_TopFloor_Corner.uasset
+Content/designbyheng/Meshes/SM_MBuilding05_SkyscraperRoofTopFacade.uasset
+Content/designbyheng/Meshes/SM_MCar01_Body.uasset
+Content/designbyheng/Meshes/SM_MCar01_FL_Door.uasset
+Content/designbyheng/Meshes/SM_MCar01_FR_Door.uasset
+Content/designbyheng/Meshes/SM_MCar01_RL_Door.uasset
+Content/designbyheng/Meshes/SM_MCar01_RR_Door.uasset
+Content/designbyheng/Meshes/SM_MCar01_Wheel.uasset
+Content/designbyheng/Meshes/SM_MCBook_01_Mesh01.uasset
+Content/designbyheng/Meshes/SM_MCBook_02_Mesh01.uasset
+Content/designbyheng/Meshes/SM_MCBook_03_Mesh01.uasset
+Content/designbyheng/Meshes/SM_MCBook_04_Mesh01.uasset
+Content/designbyheng/Meshes/SM_MCBook_05_Mesh01.uasset
+Content/designbyheng/Meshes/SM_MCBook_06_Mesh01.uasset
+Content/designbyheng/Meshes/SM_MCBottle_01_Mesh01.uasset
+Content/designbyheng/Meshes/SM_MCBottle_02_Mesh01.uasset
+Content/designbyheng/Meshes/SM_MCBottle_03_Mesh01.uasset
+Content/designbyheng/Meshes/SM_MCGarbages_Mesh01.uasset
+Content/designbyheng/Meshes/SM_MCGarbages_Mesh02.uasset
+Content/designbyheng/Meshes/SM_MCGarbages_Mesh03.uasset
+Content/designbyheng/Meshes/SM_MChair_A.uasset
+Content/designbyheng/Meshes/SM_MCheckoutCounter.uasset
+Content/designbyheng/Meshes/SM_MCObelisk01.uasset
+Content/designbyheng/Meshes/SM_MCObelisk02.uasset
+Content/designbyheng/Meshes/SM_MCObelisk03.uasset
+Content/designbyheng/Meshes/SM_MDesk_A.uasset
+Content/designbyheng/Meshes/SM_MExtinguisherFire.uasset
+Content/designbyheng/Meshes/SM_MFountainDrinks.uasset
+Content/designbyheng/Meshes/SM_MFrame_A.uasset
+Content/designbyheng/Meshes/SM_MFrame_B.uasset
+Content/designbyheng/Meshes/SM_MFrame_C.uasset
+Content/designbyheng/Meshes/SM_MFurniture_A.uasset
+Content/designbyheng/Meshes/SM_MFurniture_B.uasset
+Content/designbyheng/Meshes/SM_MLampPoint_A.uasset
+Content/designbyheng/Meshes/SM_MLitterBin.uasset
+Content/designbyheng/Meshes/SM_MMetro_Ceiling250x250_.uasset
+Content/designbyheng/Meshes/SM_MMetro_Ceiling500x500_.uasset
+Content/designbyheng/Meshes/SM_MMetro_Column_A.uasset
+Content/designbyheng/Meshes/SM_MMetro_Column_B.uasset
+Content/designbyheng/Meshes/SM_MMetro_Corner_A_Inner.uasset
+Content/designbyheng/Meshes/SM_MMetro_Corner_A_Outer.uasset
+Content/designbyheng/Meshes/SM_MMetro_Corner_B_Inner.uasset
+Content/designbyheng/Meshes/SM_MMetro_Door.uasset
+Content/designbyheng/Meshes/SM_MMetro_Entrance.uasset
+Content/designbyheng/Meshes/SM_MMetro_Floor250x250_.uasset
+Content/designbyheng/Meshes/SM_MMetro_Floor500x500_.uasset
+Content/designbyheng/Meshes/SM_MMetro_Lift.uasset
+Content/designbyheng/Meshes/SM_MMetro_Sign_A.uasset
+Content/designbyheng/Meshes/SM_MMetro_Sign_B.uasset
+Content/designbyheng/Meshes/SM_MMetro_Sign_C.uasset
+Content/designbyheng/Meshes/SM_MMetro_Sign_D.uasset
+Content/designbyheng/Meshes/SM_MMetro_Stairs.uasset
+Content/designbyheng/Meshes/SM_MMetro_TicketMachine.uasset
+Content/designbyheng/Meshes/SM_MMetro_Turnstile_A.uasset
+Content/designbyheng/Meshes/SM_MMetro_Turnstile_B.uasset
+Content/designbyheng/Meshes/SM_MMetro_Wall250x300_.uasset
+Content/designbyheng/Meshes/SM_MMetro_Wall500x300_.uasset
+Content/designbyheng/Meshes/SM_MQueueBarrier.uasset
+Content/designbyheng/Meshes/SM_MQueueBarrier_Belt.uasset
+Content/designbyheng/Meshes/SM_MQueueBarrier_Pole.uasset
+Content/designbyheng/Meshes/SM_MRectLight.uasset
+Content/designbyheng/Meshes/SM_MRollerWindowBlind_A.uasset
+Content/designbyheng/Meshes/SM_MRollerWindowBlind_B.uasset
+Content/designbyheng/Meshes/SM_MRollerWindowBlind_C.uasset
+Content/designbyheng/Meshes/SM_MSecurityCamera_A.uasset
+Content/designbyheng/Meshes/SM_MSecurityCamera_B.uasset
+Content/designbyheng/Meshes/SM_MSecurityCamera_B_Support.uasset
+Content/designbyheng/Meshes/SM_MWaitingChair.uasset
+Content/designbyheng/Meshes/SM_MWetFloorSign.uasset
+Content/designbyheng/Meshes/SM_PhoneBox01.uasset
+Content/designbyheng/Meshes/SM_PhoneBox02.uasset
+Content/designbyheng/Meshes/SM_PhoneBox03.uasset
+Content/designbyheng/Meshes/SM_Roof.uasset
+Content/designbyheng/Meshes/SM_Seam.uasset
+Content/designbyheng/Meshes/SM_Seam_Corner.uasset
+Content/designbyheng/Meshes/SM_ShopSign02.uasset
+Content/designbyheng/Meshes/SM_ShopSign03.uasset
+Content/designbyheng/Meshes/SM_ShopSign04.uasset
+Content/designbyheng/Meshes/SM_ShopSign06.uasset
+Content/designbyheng/Meshes/SM_ShopSign07.uasset
+Content/designbyheng/Meshes/SM_ShopSign08.uasset
+Content/designbyheng/Meshes/SM_ShopSign10.uasset
+Content/designbyheng/Meshes/SM_ShopSign11.uasset
+Content/designbyheng/Meshes/SM_ShopSign13.uasset
+Content/designbyheng/Meshes/SM_ShopSign14.uasset
+Content/designbyheng/Meshes/SM_StreetWall01.uasset
+Content/designbyheng/Meshes/SM_StreetWall01_02.uasset
+Content/designbyheng/Meshes/SM_Top_Floor_Base.uasset
+Content/designbyheng/Meshes/SM_Top_Floor_Door_R.uasset
+Content/designbyheng/Meshes/SM_Top_Floor_L.uasset
+Content/designbyheng/Meshes/SM_Traffic_Lamp_001.uasset
+Content/designbyheng/Meshes/SM_Traffic_Lamp_002.uasset
+Content/designbyheng/Meshes/SM_TrafficSign02.uasset
+Content/designbyheng/Meshes/SM_TrafficSign03.uasset
+Content/designbyheng/Meshes/SM_TrafficSign04.uasset
+Content/designbyheng/Meshes/SM_Tree1.uasset
+Content/designbyheng/Meshes/SM_Tree2.uasset
+Content/designbyheng/Meshes/SM_Tree3.uasset
+Content/designbyheng/Meshes/SM_UnderTrees01.uasset
+Content/designbyheng/Textures/T_Acc_BaseCCleanCT01.uasset
+Content/designbyheng/Textures/T_Acc_BaseCCT01.uasset
+Content/designbyheng/Textures/T_Acc_N+CleanCT01.uasset
+Content/designbyheng/Textures/T_Acc_N_CT01.uasset
+Content/designbyheng/Textures/T_Acc_ORMCleanCT01.uasset
+Content/designbyheng/Textures/T_Acc_ORMCT01.uasset
+Content/designbyheng/Textures/T_AirConditioner01_B.uasset
+Content/designbyheng/Textures/T_AirConditioner01_N.uasset
+Content/designbyheng/Textures/T_AirConditioner01_ORM.uasset
+Content/designbyheng/Textures/T_AirConditioner02_B.uasset
+Content/designbyheng/Textures/T_AirConditioner02_N.uasset
+Content/designbyheng/Textures/T_AirConditioner02_ORM.uasset
+Content/designbyheng/Textures/T_Asphalt01_B.uasset
+Content/designbyheng/Textures/T_Asphalt01_B01.uasset
+Content/designbyheng/Textures/T_Asphalt01_N.uasset
+Content/designbyheng/Textures/T_Asphalt01_N01.uasset
+Content/designbyheng/Textures/T_Asphalt01_ORM.uasset
+Content/designbyheng/Textures/T_Asphalt01_ORM01.uasset
+Content/designbyheng/Textures/T_Bankomat01_02_B.uasset
+Content/designbyheng/Textures/T_Bankomat01_03_B.uasset
+Content/designbyheng/Textures/T_Bankomat01_B.uasset
+Content/designbyheng/Textures/T_Bankomat01_E.uasset
+Content/designbyheng/Textures/T_Bankomat01_N.uasset
+Content/designbyheng/Textures/T_Bankomat01_ORM.uasset
+Content/designbyheng/Textures/T_Barrels01_A01.uasset
+Content/designbyheng/Textures/T_Barrels01_A02.uasset
+Content/designbyheng/Textures/T_Barrels01_B.uasset
+Content/designbyheng/Textures/T_Barrels01_N.uasset
+Content/designbyheng/Textures/T_Barrels01_ORM.uasset
+Content/designbyheng/Textures/T_Barricade_B.uasset
+Content/designbyheng/Textures/T_Barricade_N.uasset
+Content/designbyheng/Textures/T_Barricade_ORM.uasset
+Content/designbyheng/Textures/T_Barriers01_B.uasset
+Content/designbyheng/Textures/T_Barriers01_N.uasset
+Content/designbyheng/Textures/T_Barriers01_ORM.uasset
+Content/designbyheng/Textures/T_Barriers02_B.uasset
+Content/designbyheng/Textures/T_Barriers02_N.uasset
+Content/designbyheng/Textures/T_Barriers02_ORM.uasset
+Content/designbyheng/Textures/T_Barriers03_B.uasset
+Content/designbyheng/Textures/T_Barriers03_Normal.uasset
+Content/designbyheng/Textures/T_Barriers03_ORM.uasset
+Content/designbyheng/Textures/T_Bin_001_D.uasset
+Content/designbyheng/Textures/T_Bin_001_N.uasset
+Content/designbyheng/Textures/T_Bin_001_ORM.uasset
+Content/designbyheng/Textures/T_Bin_002_D.uasset
+Content/designbyheng/Textures/T_Bin_002_E.uasset
+Content/designbyheng/Textures/T_Bin_002_N.uasset
+Content/designbyheng/Textures/T_Bin_002_ORM.uasset
+Content/designbyheng/Textures/T_BlackandWhiteCT01.uasset
+Content/designbyheng/Textures/T_Body_B_CleanCT01.uasset
+Content/designbyheng/Textures/T_Body_B_CT01.uasset
+Content/designbyheng/Textures/T_Body_N_CleanCT01.uasset
+Content/designbyheng/Textures/T_Body_N_CT01.uasset
+Content/designbyheng/Textures/T_Body_ORMCleanCT01.uasset
+Content/designbyheng/Textures/T_Body_ORMCT01.uasset
+Content/designbyheng/Textures/T_Bush1_Leaf_BC.uasset
+Content/designbyheng/Textures/T_Bush1_Leaf_N.uasset
+Content/designbyheng/Textures/T_Bush1_Leaf_OP.uasset
+Content/designbyheng/Textures/T_Bush2_BC.uasset
+Content/designbyheng/Textures/T_Bush2_N.uasset
+Content/designbyheng/Textures/T_Bush2_OP.uasset
+Content/designbyheng/Textures/T_CafeTable01_B.uasset
+Content/designbyheng/Textures/T_CafeTable01_N.uasset
+Content/designbyheng/Textures/T_CafeTable01_ORM.uasset
+Content/designbyheng/Textures/T_CT01_Hydraulics_B.uasset
+Content/designbyheng/Textures/T_CT01_Hydraulics_E.uasset
+Content/designbyheng/Textures/T_CT01_Hydraulics_N.uasset
+Content/designbyheng/Textures/T_CT01_Hydraulics_ORM.uasset
+Content/designbyheng/Textures/T_FastFood_BC.uasset
+Content/designbyheng/Textures/T_FastFood_N.uasset
+Content/designbyheng/Textures/T_FastFood_ORM.uasset
+Content/designbyheng/Textures/T_Glass_B.uasset
+Content/designbyheng/Textures/T_Glass_B_CleanCT01.uasset
+Content/designbyheng/Textures/T_Glass_B_CT01.uasset
+Content/designbyheng/Textures/T_Glass_O.uasset
+Content/designbyheng/Textures/T_Glass_ORMCleanCT01.uasset
+Content/designbyheng/Textures/T_Glass_ORMCT01.uasset
+Content/designbyheng/Textures/T_Grass_Color1.uasset
+Content/designbyheng/Textures/T_Grass_Color2.uasset
+Content/designbyheng/Textures/T_Grass_Color3.uasset
+Content/designbyheng/Textures/T_Grass_Color4.uasset
+Content/designbyheng/Textures/T_Ground_Floor_Door_Mat_B.uasset
+Content/designbyheng/Textures/T_Ground_Floor_Door_Mat_M.uasset
+Content/designbyheng/Textures/T_Ground_Floor_Door_Mat_N.uasset
+Content/designbyheng/Textures/T_Ground_Floor_Door_Mat_R.uasset
+Content/designbyheng/Textures/T_Ground_Floor_Entrance_Mat_B.uasset
+Content/designbyheng/Textures/T_Ground_Floor_Entrance_Mat_M.uasset
+Content/designbyheng/Textures/T_Ground_Floor_Entrance_Mat_N.uasset
+Content/designbyheng/Textures/T_Ground_Floor_Entrance_Mat_R.uasset
+Content/designbyheng/Textures/T_GroundModule01_03_B.uasset
+Content/designbyheng/Textures/T_GroundModule01_03_N.uasset
+Content/designbyheng/Textures/T_GroundModule01_03_ORM.uasset
+Content/designbyheng/Textures/T_GroundModule01_B.uasset
+Content/designbyheng/Textures/T_GroundModule01_B01.uasset
+Content/designbyheng/Textures/T_GroundModule01_N.uasset
+Content/designbyheng/Textures/T_GroundModule01_N01.uasset
+Content/designbyheng/Textures/T_GroundModule01_ORM.uasset
+Content/designbyheng/Textures/T_GroundModule01_ORM01.uasset
+Content/designbyheng/Textures/T_GroundModule03_B.uasset
+Content/designbyheng/Textures/T_GroundModule03_N.uasset
+Content/designbyheng/Textures/T_GroundModule03_ORM.uasset
+Content/designbyheng/Textures/T_HydDirtyCT01_B.uasset
+Content/designbyheng/Textures/T_HydDirtyCT01_E.uasset
+Content/designbyheng/Textures/T_HydDirtyCT01_N.uasset
+Content/designbyheng/Textures/T_HydDirtyCT01_ORM.uasset
+Content/designbyheng/Textures/T_Lamp_001_D.uasset
+Content/designbyheng/Textures/T_Lamp_001_N.uasset
+Content/designbyheng/Textures/T_Lamp_001_ORM.uasset
+Content/designbyheng/Textures/T_lampsct01_M_Body_E.uasset
+Content/designbyheng/Textures/T_lampsct01_M_Glass_E.uasset
+Content/designbyheng/Textures/T_MBoothSeat_BC.uasset
+Content/designbyheng/Textures/T_MBoothSeat_N.uasset
+Content/designbyheng/Textures/T_MBoothSeat_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding01_Facades_BC.uasset
+Content/designbyheng/Textures/T_MBuilding01_Facades_N.uasset
+Content/designbyheng/Textures/T_MBuilding01_Facades_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding01_FirstFloor_A_BC.uasset
+Content/designbyheng/Textures/T_MBuilding01_FirstFloor_A_N.uasset
+Content/designbyheng/Textures/T_MBuilding01_FirstFloor_A_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding01_FirstFloor_B_BC.uasset
+Content/designbyheng/Textures/T_MBuilding01_FirstFloor_B_N.uasset
+Content/designbyheng/Textures/T_MBuilding01_FirstFloor_B_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding01_FirstFloor_C_BC.uasset
+Content/designbyheng/Textures/T_MBuilding01_FirstFloor_C_N.uasset
+Content/designbyheng/Textures/T_MBuilding01_FirstFloor_C_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding02_Facades_D_BC.uasset
+Content/designbyheng/Textures/T_MBuilding02_Facades_D_N.uasset
+Content/designbyheng/Textures/T_MBuilding02_Facades_D_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding02_FirstFloor_D_BC.uasset
+Content/designbyheng/Textures/T_MBuilding02_FirstFloor_D_N.uasset
+Content/designbyheng/Textures/T_MBuilding02_FirstFloor_D_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding02_FirstFloor_G_BC.uasset
+Content/designbyheng/Textures/T_MBuilding02_FirstFloor_G_N.uasset
+Content/designbyheng/Textures/T_MBuilding02_FirstFloor_G_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding02_Ledges_BC.uasset
+Content/designbyheng/Textures/T_MBuilding02_Ledges_N.uasset
+Content/designbyheng/Textures/T_MBuilding02_Ledges_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding03_Facades_BC.uasset
+Content/designbyheng/Textures/T_MBuilding03_Facades_N.uasset
+Content/designbyheng/Textures/T_MBuilding03_Facades_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding03_FirstFloor_BC.uasset
+Content/designbyheng/Textures/T_MBuilding03_FirstFloor_N.uasset
+Content/designbyheng/Textures/T_MBuilding03_FirstFloor_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding03_RoofLedge_BC.uasset
+Content/designbyheng/Textures/T_MBuilding03_RoofLedge_N.uasset
+Content/designbyheng/Textures/T_MBuilding03_RoofLedge_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_Carpet_AO.uasset
+Content/designbyheng/Textures/T_MBuilding04_Carpet_AO_R.uasset
+Content/designbyheng/Textures/T_MBuilding04_Carpet_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_Carpet_H.uasset
+Content/designbyheng/Textures/T_MBuilding04_Carpet_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_Carpet_R.uasset
+Content/designbyheng/Textures/T_MBuilding04_Ceiling_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_Ceiling_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_Ceiling_R.uasset
+Content/designbyheng/Textures/T_MBuilding04_ColumnStairs_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_ColumnStairs_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_ColumnStairs_OP.uasset
+Content/designbyheng/Textures/T_MBuilding04_ColumnStairs_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_Facades_A_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_Facades_A_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_Facades_A_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_Facades_B_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_Facades_B_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_Facades_B_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_Facades_Inner_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_Facades_Inner_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_Facades_Inner_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_A_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_A_Inner_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_A_Inner_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_A_Inner_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_A_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_A_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_B_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_B_Inner_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_B_Inner_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_B_Inner_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_B_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_B_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_C_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_C_Inner_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_C_Inner_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_C_Inner_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_C_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_FirstFloor_C_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_Furnitures_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_Furnitures_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_Furnitures_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_InfoDesk_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_InfoDesk_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_InfoDesk_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFacades_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFacades_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFacades_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFFDoor_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFFDoor_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFFDoor_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFFLift_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFFLift_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFFLift_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFFWall_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFFWall_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFFWall_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFFWindow_A_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFFWindow_A_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFFWindow_A_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFFWindow_B_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFFWindow_B_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_InnerFFWindow_B_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding04_MainFloor_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_MainFloor_H.uasset
+Content/designbyheng/Textures/T_MBuilding04_MainFloor_N.uasset
+Content/designbyheng/Textures/T_MBuilding04_MainFloor_R.uasset
+Content/designbyheng/Textures/T_MBuilding04_Roof_BC.uasset
+Content/designbyheng/Textures/T_MBuilding04_Roof_N.uasset
+Content/designbyheng/Textures/T_MBuilding05_SkyscraperLedge_BC.uasset
+Content/designbyheng/Textures/T_MBuilding05_SkyscraperLedge_N.uasset
+Content/designbyheng/Textures/T_MBuilding05_SkyscraperLedge_ORM.uasset
+Content/designbyheng/Textures/T_MBuilding05_SkyscraperWindows_BC.uasset
+Content/designbyheng/Textures/T_MBuilding05_SkyscraperWindows_N.uasset
+Content/designbyheng/Textures/T_MCar01_Exterior_BC.uasset
+Content/designbyheng/Textures/T_MCar01_Exterior_ClearMask.uasset
+Content/designbyheng/Textures/T_MCar01_Exterior_Dirty_BC.uasset
+Content/designbyheng/Textures/T_MCar01_Exterior_Dirty_ORM.uasset
+Content/designbyheng/Textures/T_MCar01_Exterior_DirtyMask.uasset
+Content/designbyheng/Textures/T_MCar01_Exterior_E.uasset
+Content/designbyheng/Textures/T_MCar01_Exterior_Masks.uasset
+Content/designbyheng/Textures/T_MCar01_Exterior_N.uasset
+Content/designbyheng/Textures/T_MCar01_Exterior_ORM.uasset
+Content/designbyheng/Textures/T_MCar01_Interior_BC.uasset
+Content/designbyheng/Textures/T_MCar01_Interior_E.uasset
+Content/designbyheng/Textures/T_MCar01_Interior_N.uasset
+Content/designbyheng/Textures/T_MCar01_Interior_ORM.uasset
+Content/designbyheng/Textures/T_MCheckoutCounter_BC.uasset
+Content/designbyheng/Textures/T_MCheckoutCounter_N.uasset
+Content/designbyheng/Textures/T_MCheckoutCounter_ORM.uasset
+Content/designbyheng/Textures/T_MCProps_Base.uasset
+Content/designbyheng/Textures/T_MCProps_N.uasset
+Content/designbyheng/Textures/T_MCProps_ORM.uasset
+Content/designbyheng/Textures/T_MFountainDrinks_BC.uasset
+Content/designbyheng/Textures/T_MFountainDrinks_N.uasset
+Content/designbyheng/Textures/T_MFountainDrinks_ORM.uasset
+Content/designbyheng/Textures/T_MFurniture_B_BC.uasset
+Content/designbyheng/Textures/T_MFurniture_B_N.uasset
+Content/designbyheng/Textures/T_MFurniture_B_ORM.uasset
+Content/designbyheng/Textures/T_MMetro_Ceiling_BC.uasset
+Content/designbyheng/Textures/T_MMetro_Ceiling_N.uasset
+Content/designbyheng/Textures/T_MMetro_Ceiling_ORM.uasset
+Content/designbyheng/Textures/T_MMetro_Doors_BC.uasset
+Content/designbyheng/Textures/T_MMetro_Doors_N.uasset
+Content/designbyheng/Textures/T_MMetro_Doors_ORM.uasset
+Content/designbyheng/Textures/T_MMetro_EntranceRoof_BC.uasset
+Content/designbyheng/Textures/T_MMetro_EntranceRoof_N.uasset
+Content/designbyheng/Textures/T_MMetro_EntranceRoof_ORM.uasset
+Content/designbyheng/Textures/T_MMetro_EntranceSide_BC.uasset
+Content/designbyheng/Textures/T_MMetro_EntranceSide_N.uasset
+Content/designbyheng/Textures/T_MMetro_EntranceSide_ORM.uasset
+Content/designbyheng/Textures/T_MMetro_EntranceSupport_BC.uasset
+Content/designbyheng/Textures/T_MMetro_EntranceSupport_N.uasset
+Content/designbyheng/Textures/T_MMetro_EntranceSupport_ORM.uasset
+Content/designbyheng/Textures/T_MMetro_Escalator_BC.uasset
+Content/designbyheng/Textures/T_MMetro_Escalator_N.uasset
+Content/designbyheng/Textures/T_MMetro_Escalator_ORM.uasset
+Content/designbyheng/Textures/T_MMetro_Floor_BC.uasset
+Content/designbyheng/Textures/T_MMetro_Floor_N.uasset
+Content/designbyheng/Textures/T_MMetro_Floor_ORM.uasset
+Content/designbyheng/Textures/T_MMetro_Props_BC.uasset
+Content/designbyheng/Textures/T_MMetro_Props_N.uasset
+Content/designbyheng/Textures/T_MMetro_Props_ORM.uasset
+Content/designbyheng/Textures/T_MMetro_Signs_BC.uasset
+Content/designbyheng/Textures/T_MMetro_Signs_E.uasset
+Content/designbyheng/Textures/T_MMetro_Signs_N.uasset
+Content/designbyheng/Textures/T_MMetro_Signs_ORM.uasset
+Content/designbyheng/Textures/T_MMetro_Stairs_A_BC.uasset
+Content/designbyheng/Textures/T_MMetro_Stairs_A_N.uasset
+Content/designbyheng/Textures/T_MMetro_Stairs_A_ORM.uasset
+Content/designbyheng/Textures/T_MMetro_Stairs_B_BC.uasset
+Content/designbyheng/Textures/T_MMetro_Stairs_B_N.uasset
+Content/designbyheng/Textures/T_MMetro_Stairs_B_ORM.uasset
+Content/designbyheng/Textures/T_MMetro_StairsTrim_A_BC.uasset
+Content/designbyheng/Textures/T_MMetro_StairsTrim_A_N.uasset
+Content/designbyheng/Textures/T_MMetro_StairsTrim_A_ORM.uasset
+Content/designbyheng/Textures/T_MMetro_Wall_BC.uasset
+Content/designbyheng/Textures/T_MMetro_Wall_N.uasset
+Content/designbyheng/Textures/T_MMetro_Wall_ORM.uasset
+Content/designbyheng/Textures/T_Obelisk01_Mat01_Base.uasset
+Content/designbyheng/Textures/T_Obelisk01_Mat01_Normal.uasset
+Content/designbyheng/Textures/T_Obelisk01_Mat01_ORM.uasset
+Content/designbyheng/Textures/T_Palm_Bark_BC.uasset
+Content/designbyheng/Textures/T_Palm_Bark_N.uasset
+Content/designbyheng/Textures/T_PhoneBoxMat01_B.uasset
+Content/designbyheng/Textures/T_PhoneBoxMat01_N.uasset
+Content/designbyheng/Textures/T_PhoneBoxMat01_ORM.uasset
+Content/designbyheng/Textures/T_PhoneBoxMat02_B.uasset
+Content/designbyheng/Textures/T_PhoneBoxMat02_N.uasset
+Content/designbyheng/Textures/T_PhoneBoxMat02_ORM.uasset
+Content/designbyheng/Textures/T_Roof_Mat_BaseColor.uasset
+Content/designbyheng/Textures/T_Roof_Mat_Metallic.uasset
+Content/designbyheng/Textures/T_Roof_Mat_Normal.uasset
+Content/designbyheng/Textures/T_Roof_Mat_Roughness.uasset
+Content/designbyheng/Textures/T_ShopSigns01_Base.uasset
+Content/designbyheng/Textures/T_ShopSigns01_N.uasset
+Content/designbyheng/Textures/T_ShopSigns01_ORm.uasset
+Content/designbyheng/Textures/T_ShopSigns02_B.uasset
+Content/designbyheng/Textures/T_ShopSigns02_E.uasset
+Content/designbyheng/Textures/T_ShopSigns02_N.uasset
+Content/designbyheng/Textures/T_ShopSigns02_ORM.uasset
+Content/designbyheng/Textures/T_Single_Window_B_.uasset
+Content/designbyheng/Textures/T_Single_Window_M.uasset
+Content/designbyheng/Textures/T_Single_Window_N.uasset
+Content/designbyheng/Textures/T_Single_Window_R.uasset
+Content/designbyheng/Textures/T_SP_Picture_A.uasset
+Content/designbyheng/Textures/T_SP_Picture_B.uasset
+Content/designbyheng/Textures/T_SP_Picture_C.uasset
+Content/designbyheng/Textures/T_SPGarbage01_Mat01_B.uasset
+Content/designbyheng/Textures/T_SPGarbage01_Mat01_Normal.uasset
+Content/designbyheng/Textures/T_SPGarbage01_Mat01_ORM.uasset
+Content/designbyheng/Textures/T_StreetBenches01_B.uasset
+Content/designbyheng/Textures/T_StreetBenches01_N.uasset
+Content/designbyheng/Textures/T_StreetBenches01_ORM.uasset
+Content/designbyheng/Textures/T_StreetWall01_N.uasset
+Content/designbyheng/Textures/T_StreetWall01_ORM.uasset
+Content/designbyheng/Textures/T_StreetWalll01_B.uasset
+Content/designbyheng/Textures/T_Tires_B_CleanCT01.uasset
+Content/designbyheng/Textures/T_Tires_B_CT01.uasset
+Content/designbyheng/Textures/T_Tires_N_CleanCT01.uasset
+Content/designbyheng/Textures/T_Tires_N_lCT01.uasset
+Content/designbyheng/Textures/T_Tires_OcclusionRoughnessMetallicCT01.uasset
+Content/designbyheng/Textures/T_Tires_ORM_CleanCT01.uasset
+Content/designbyheng/Textures/T_Tree1_Bark_BC.uasset
+Content/designbyheng/Textures/T_Tree1_Bark_N.uasset
+Content/designbyheng/Textures/T_Tree1_Leaf_BC.uasset
+Content/designbyheng/Textures/T_Tree1_Leaf_N.uasset
+Content/designbyheng/Textures/T_Tree1_Leaf_OP.uasset
+Content/designbyheng/Textures/T_Tree2_Bark_BC.uasset
+Content/designbyheng/Textures/T_Tree2_Bark_N.uasset
+Content/designbyheng/Textures/T_Tree2_Leaf_BC.uasset
+Content/designbyheng/Textures/T_Tree2_Leaf_N.uasset
+Content/designbyheng/Textures/T_Tree2_Leaf_OP.uasset
+Content/designbyheng/Textures/T_Tree3_Leaf_BC.uasset
+Content/designbyheng/Textures/T_Tree3_Leaf_N.uasset
+Content/designbyheng/Textures/T_Tree3_Leaf_OP.uasset
+Content/designbyheng/Textures/T_UnderTrees_B.uasset
+Content/designbyheng/Textures/T_UnderTrees_N.uasset
+Content/designbyheng/Textures/T_UnderTrees_ORM.uasset
+Content/designbyheng/Textures/T_VEHICLETRUCK_N.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Materials/M_UE4Man_Body.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Materials/M_UE4Man_ChestLogo.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Materials/MaterialLayers/ML_GlossyBlack_Latex_UE4.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Materials/MaterialLayers/ML_Plastic_Shiny_Beige.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Materials/MaterialLayers/ML_Plastic_Shiny_Beige_LOGO.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Materials/MaterialLayers/ML_SoftMetal_UE4.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Materials/MaterialLayers/T_ML_Aluminum01.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Materials/MaterialLayers/T_ML_Aluminum01_N.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Materials/MaterialLayers/T_ML_Rubber_Blue_01_D.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Materials/MaterialLayers/T_ML_Rubber_Blue_01_N.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Mesh/SK_Mannequin.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Mesh/SK_Mannequin_PhysicsAsset.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Mesh/UE4_Mannequin_Skeleton.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Textures/UE4_LOGO_CARD.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Textures/UE4_Mannequin__normals.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Textures/UE4_Mannequin_MAT_MASKA.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Textures/UE4_Mannequin_occlusion_Mobile.uasset
+Content/guanka first/AnimStarterPack/UE4_Mannequin/Textures/UE4Man_Logo_N.uasset
+Content/guanka first/Effects/FireMuzzle.uasset
+Content/guanka first/ImpactEffects/Physmats/Physmat_Blood.uasset
+Content/guanka first/ImpactEffects/Physmats/Physmat_Blood_Small.uasset
+Content/guanka first/ImpactEffects/Physmats/Physmat_Glass.uasset
+Content/guanka first/ImpactEffects/Physmats/Physmat_Glass_Small.uasset
+Content/guanka first/ImpactEffects/Physmats/Physmat_Grass.uasset
+Content/guanka first/ImpactEffects/Physmats/Physmat_Leaves.uasset
+Content/guanka first/ImpactEffects/Physmats/Physmat_Metal.uasset
+Content/guanka first/ImpactEffects/Physmats/Physmat_Sand.uasset
+Content/guanka first/ImpactEffects/Physmats/Physmat_Wood.uasset
+Content/guanka first/Mannequin/Character/Materials/M_UE4Man_Body.uasset
+Content/guanka first/Mannequin/Character/Materials/M_UE4Man_ChestLogo.uasset
+Content/guanka first/Mannequin/Character/Materials/MaterialLayers/ML_GlossyBlack_Latex_UE4.uasset
+Content/guanka first/Mannequin/Character/Materials/MaterialLayers/ML_Plastic_Shiny_Beige.uasset
+Content/guanka first/Mannequin/Character/Materials/MaterialLayers/ML_Plastic_Shiny_Beige_LOGO.uasset
+Content/guanka first/Mannequin/Character/Materials/MaterialLayers/ML_SoftMetal_UE4.uasset
+Content/guanka first/Mannequin/Character/Materials/MaterialLayers/T_ML_Aluminum01.uasset
+Content/guanka first/Mannequin/Character/Materials/MaterialLayers/T_ML_Aluminum01_N.uasset
+Content/guanka first/Mannequin/Character/Materials/MaterialLayers/T_ML_Rubber_Blue_01_D.uasset
+Content/guanka first/Mannequin/Character/Materials/MaterialLayers/T_ML_Rubber_Blue_01_N.uasset
+Content/guanka first/Mannequin/Character/Mesh/SK_Mannequin.uasset
+Content/guanka first/Mannequin/Character/Mesh/SK_Mannequin_PhysicsAsset.uasset
+Content/guanka first/Mannequin/Character/Mesh/UE4_Mannequin_Skeleton.uasset
+Content/guanka first/Mannequin/Character/Textures/UE4_LOGO_CARD.uasset
+Content/guanka first/Mannequin/Character/Textures/UE4_Mannequin__normals.uasset
+Content/guanka first/Mannequin/Character/Textures/UE4_Mannequin_MAT_MASKA.uasset
+Content/guanka first/Mannequin/Character/Textures/UE4Man_Logo_N.uasset
+Content/guanka first/Meshes/Bump_StaticMesh.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/blank_c.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/cosmetic_suctioncup.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/cosmetic_suctioncup_col.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/cosmetic_suctioncup_gloss.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/cosmetic_suctioncup_mask.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/cosmetic_suctioncup_nml.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/cosmetic_suctioncup_occl.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/cosmetic_suctioncup_spec.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/m4a1_withmag.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/m4a1_withmag_PhysicsAsset.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/m4a1_withmag_Skeleton.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/stencil_outline.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_accessories_1_camo.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_accessories_3_camo.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_accessories_camo.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_accs_col.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_accs_gloss.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_accs_mask.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_accs_nml.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_accs_occl.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_accs_spec.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_camo.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_col.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_gloss.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_gunpaint_left_camo.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_gunpaint_top_camo.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_mag_camo.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_mag_col.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_mag_gloss.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_mag_nml.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_mag_occl.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_mag_spec.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_nml.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_occl.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_sight_col.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_sight_gloss.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_sight_nml.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_sight_occl.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_sight_spec.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_sights_camo.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_sights_trans.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_spec.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_tint_2_camo.uasset
+Content/guanka first/Meshes/Guns/M4A1/with_mag/weapon_kb_m4_tint_camo.uasset
+Content/guanka first/Meshes/RampMaterial.uasset
+Content/guanka first/Meshes/Soldier_01/Materials/M_soldier_01_swat.uasset
+Content/guanka first/Meshes/Soldier_01/Source/CH_soldier_01.uasset
+Content/guanka first/Meshes/Soldier_01/Textures/Soldier_01_N.uasset
+Content/guanka first/Meshes/Soldier_01/Textures/Soldier_01_S_R_AO_MT.uasset
+Content/guanka first/Meshes/Soldier_01/Textures/Soldier_01_swat_BC.uasset
+Content/guanka first/muzzles/Materials/M_50CalSide.uasset
+Content/guanka first/muzzles/Materials/M_FlashSet1.uasset
+Content/guanka first/muzzles/Materials/M_Heat_Distortion.uasset
+Content/guanka first/muzzles/Materials/M_Heat_Distortion_Inst.uasset
+Content/guanka first/muzzles/Materials/M_ImpactSmoke.uasset
+Content/guanka first/muzzles/Materials/M_Lensflare_01.uasset
+Content/guanka first/muzzles/Materials/M_MuzzleGlow.uasset
+Content/guanka first/muzzles/Materials/M_SoftGradient_Muzzle.uasset
+Content/guanka first/muzzles/Meshes/SM_MuzzleCone.uasset
+Content/guanka first/muzzles/Textures/flash18.uasset
+Content/guanka first/muzzles/Textures/singles1.uasset
+Content/guanka first/muzzles/Textures/T_Clouds_01.uasset
+Content/guanka first/muzzles/Textures/T_Lensflare_01.uasset
+Content/guanka first/muzzles/Textures/T_SmokeBall_01_8_8.uasset
+Content/guanka first/muzzles/Textures/T_SquareMaskTightEdge.uasset
+Content/guanka first/muzzles/Textures/T_TileNoise.uasset
+Content/guanka first/muzzles/Textures/T_Water_N.uasset
+Content/Materials/MI_Container01.uasset
+Content/Meshes/Meshes/SM_Aircon01.uasset
+Content/Meshes/Meshes/SM_Aircon02.uasset
+Content/Meshes/Meshes/SM_Barrier02.uasset
+Content/Meshes/Meshes/SM_House01.uasset
+Content/Meshes/Meshes/SM_Light01.uasset
+Content/Meshes/Meshes/SM_MetalFrame01.uasset
+Content/Meshes/Meshes/SM_SkyscrapperBG02.uasset
+Content/Meshes/Meshes/SM_TrashBag01.uasset
+Content/Meshes/Meshes/SM_TrashBag02.uasset
+Content/Meshes/sedane/sedane_LOD2.uasset
+Content/Meshes/SUV/SUV_LOD0.uasset
+Content/Meshes/SUV/SUV_LOD2.uasset
+Content/SoulCity/Effects/Materials/Water/M_ParticleWater_MASTER_Mobile.uasset
+Content/SoulCity/Effects/Materials/Water/M_WaterDrop_SubUV.uasset
+Content/SoulCity/Effects/Materials/Water/MI_WaterDrop_SubUV.uasset
+Content/SoulCity/Effects/Particles/Water/P_RainGroundSplash.uasset
+Content/SoulCity/Effects/Particles/Water/P_RainRunOff.uasset
+Content/SoulCity/Effects/Particles/Water/P_RainStorm_Mobile.uasset
+Content/SoulCity/Effects/Particles/Water/P_splash_around_rock.uasset
+Content/SoulCity/Effects/Particles/Water/P_splashFog.uasset
+Content/SoulCity/Effects/Textures/Cube/T_CubeNearEntrance.uasset
+Content/SoulCity/Effects/Textures/Water/T_Droplets_LitShaded_D.uasset
+Content/SoulCity/Effects/Textures/Water/T_Droplets_N.uasset
+Content/SoulCity/Effects/Textures/Water/T_DropSubUV_A.uasset
+Content/SoulCity/Effects/Textures/Water/T_DropSubUV_N.uasset
+Content/SoulCity/Effects/Textures/Water/T_Dust_Soft_M.uasset
+Content/SoulCity/Effects/Textures/Water/T_water_foam_M.uasset
+Content/SoulCity/Effects/Textures/Water/T_WaterDroplets_M.uasset
+Content/SoulCity/Effects/Textures/Water/T_WaterDroplets_N.uasset
+Content/SoulCity/Environment/Materials/Effects/M_dust_dynamic_rotate.uasset
+Content/SoulCity/Environment/Materials/Water/M_Water_Foam.uasset
