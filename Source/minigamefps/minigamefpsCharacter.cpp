@@ -214,7 +214,7 @@ void AminigamefpsCharacter::Interact()
 	FRotator EyeRotation;
 	GetActorEyesViewPoint(EyeLocation, EyeRotation);
 	FVector ShotDirection = EyeRotation.Vector();
-	FVector TraceEnd = EyeLocation + (ShotDirection * 1000);
+	FVector TraceEnd = EyeLocation + (ShotDirection * 200);
 	FCollisionQueryParams QueryParams;
 	QueryParams.AddIgnoredActor(this);
 	GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, TraceEnd, ECC_Visibility, QueryParams);
