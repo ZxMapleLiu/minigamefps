@@ -67,7 +67,7 @@ void AWeaponBase::React(AActor* OtherActor)
 		PlayerChar->DropWeapon();
 		SetOwner(PlayerChar);
 		this->AttachToComponent(PlayerChar->GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, TEXT("weapon_socket"));
-		PlayerChar->WeaponSlot = this;
+		PlayerChar->WeaponSlot[0] = this;
 	}
 }
 

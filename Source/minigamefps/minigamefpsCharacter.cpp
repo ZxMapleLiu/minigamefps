@@ -17,7 +17,6 @@ AminigamefpsCharacter::AminigamefpsCharacter()
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
-
 	// set our turn rates for input
 	BaseTurnRate = 45.f;
 	BaseLookUpRate = 45.f;
@@ -124,10 +123,10 @@ void AminigamefpsCharacter::GetActorEyesViewPoint(FVector& OutLocation, FRotator
 
 void AminigamefpsCharacter::DropWeapon()
 {
-	if (WeaponSlot)
+	if (WeaponSlot.Num()>0)
 	{
-		WeaponSlot->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
-		WeaponSlot->SetOwner(nullptr);
+		WeaponSlot[0]->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		WeaponSlot[0]->SetOwner(nullptr);
 	}
 }
 
@@ -181,13 +180,13 @@ void AminigamefpsCharacter::StartFiring()
 
 void AminigamefpsCharacter::Fire()
 {
-	if (WeaponSlot != NULL && !bIsSprinting && !bIsRealoading)
+	if (WeaponSlot.Num()>0 && !bIsSprinting && !bIsRealoading)
 	{
-		WeaponSlot->Fire();
-		WeaponSlot->SetFiring(true);
-		if (WeaponSlot->bIsAutomatic == true)
+		WeaponSlot[0]->Fire();
+		WeaponSlot[0]->SetFiring(true);
+		if (WeaponSlot[0]->bIsAutomatic == true)
 		{
-			GetWorldTimerManager().SetTimer(AutoWeaponFireTimerHandle, this, &AminigamefpsCharacter::CheckForAutoFire, WeaponSlot->FireRate);
+			GetWorldTimerManager().SetTimer(AutoWeaponFireTimerHandle, this, &AminigamefpsCharacter::CheckForAutoFire, WeaponSlot[0]->FireRate);
 		}
 	}
 // 	else
@@ -198,10 +197,10 @@ void AminigamefpsCharacter::Fire()
 
 void AminigamefpsCharacter::StopFiring()
 {
-	if (bIsFiring && WeaponSlot != NULL)
+	if (bIsFiring && WeaponSlot.Num()>0)
 	{
 		bIsFiring = false;
-		WeaponSlot->SetFiring(false);
+		WeaponSlot[0]->SetFiring(false);
 	}
 	
 }
@@ -227,10 +226,10 @@ void AminigamefpsCharacter::Interact()
 
 void AminigamefpsCharacter::StartReloading()
 {
-	if (WeaponSlot && bIsRealoading == false)
+	if (WeaponSlot.Num()>0 && bIsRealoading == false)
 	{
 		bIsRealoading = true;
-		WeaponSlot->Reload();
+		WeaponSlot[0]->Reload();
 	}
 }
 
@@ -243,7 +242,7 @@ void AminigamefpsCharacter::OnHealthChanged(UGameplayPropertyComp* GameplayComp,
 		//ËÀÍöÅÐ¶¨
 		GetMovementComponent()->StopMovementImmediately();
 		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-		WeaponSlot->SetOwner(nullptr);
+		WeaponSlot[0]->SetOwner(nullptr);
 
 
 		DetachFromControllerPendingDestroy();

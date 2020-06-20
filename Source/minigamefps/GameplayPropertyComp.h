@@ -29,7 +29,7 @@ protected:
 		int Health;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Gameplay)
 		int MaxArmor; 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Gameplay)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 		int Armor;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Gameplay)
 	//´­ÆøÉñ¹¦
