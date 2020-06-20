@@ -93,7 +93,6 @@ void AminigamefpsCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AminigamefpsCharacter::Sprinting);
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AminigamefpsCharacter::StopSprinting);
 	PlayerInputComponent->BindAction("Reload", IE_Pressed, this, &AminigamefpsCharacter::StartReloading);
-
 	PlayerInputComponent->BindAction("Use", IE_Pressed, this, &AminigamefpsCharacter::Interact);
 
 	PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &AminigamefpsCharacter::SwitchPosition);
@@ -123,10 +122,12 @@ void AminigamefpsCharacter::GetActorEyesViewPoint(FVector& OutLocation, FRotator
 
 void AminigamefpsCharacter::DropWeapon()
 {
-	if (WeaponSlot.Num()>0)
+	if (WeaponSlot.Num()>1)
 	{
+		
 		WeaponSlot[0]->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 		WeaponSlot[0]->SetOwner(nullptr);
+		
 	}
 }
 
