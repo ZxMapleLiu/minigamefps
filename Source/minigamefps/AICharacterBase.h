@@ -46,9 +46,13 @@ public:
 		AWeaponBase* WeaponSlot;
 	FORCEINLINE class UGameplayPropertyComp* GetGameplayPropertyComp() const { return GameplayPropertyComp; }
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
-		void EndReload();
+		void EndReloading();
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
 		void IfReload();
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
+		void Reloading();
+	UFUNCTION(BlueprintCallable, Category = "Weapon")
 		void SetCurrentAmmo();
+	UFUNCTION(BlueprintCallable, Category = "Weapon")
+		void Fire();
 };

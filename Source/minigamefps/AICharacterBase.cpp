@@ -77,7 +77,7 @@ void AAICharacterBase::IfReload()
 
 }
 
-void AAICharacterBase::EndReload()
+void AAICharacterBase::EndReloading()
 {
 	if (WeaponSlot)
 	{
@@ -90,5 +90,20 @@ void AAICharacterBase::SetCurrentAmmo()
 	if (WeaponSlot)
 	{
 		WeaponSlot->SetCurrentAmmoInMag();
+	}
+}
+
+void AAICharacterBase::Reloading()
+{
+	bIsReloading = true;
+
+}
+
+void AAICharacterBase::Fire()
+{
+	if (WeaponSlot != NULL)
+	{
+
+		WeaponSlot->Fire();
 	}
 }

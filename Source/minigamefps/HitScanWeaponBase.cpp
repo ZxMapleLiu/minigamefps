@@ -13,6 +13,7 @@
 #include "Engine/SkeletalMeshSocket.h"
 #include "DrawDebugHelpers.h"
 #include "Kismet/GameplayStatics.h"
+#include "AICharacterBase.h"
 
 AHitScanWeaponBase::AHitScanWeaponBase()
 {
@@ -339,9 +340,12 @@ void AHitScanWeaponBase::Fire()
 			}
 			if (bNeedAmmo && CurrentAmmoInMag == 0)
 			{
-				if (NoAmmoSound)
-					UGameplayStatics::PlaySoundAtLocation(this, NoAmmoSound, this->GetActorLocation());
-
+				//if (NoAmmoSound)
+					//UGameplayStatics::PlaySoundAtLocation(this, NoAmmoSound, this->GetActorLocation());
+				bIsReloading = true;
+				Cast<AAICharacterBase>(GetOwner())->Reloading();
+				UGameplayStatics::PlaySoundAtLocation(this, ReloadSound, this->GetActorLocation());
+				GetWorldTimerManager().SetTimer(ReloadTimer, this, &AHitScanWeaponBase::AIEndReloading, ReloadTime);
 			}
 		}
 
@@ -395,4 +399,11 @@ void AHitScanWeaponBase::BeginPlay()
 	
 }
 
+void AHitScanWeaponBase::AIEndReloading()
+{
+	CurrentAmmoInMag = MaxAmmoInMag;
+	Cast<AAICharacterBase>(GetOwner())->EndReloading();
+	GetWorldTimerManager().ClearTimer(ReloadTimer);
+	bIsReloading = false;
+}
 
